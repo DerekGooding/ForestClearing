@@ -43,6 +43,8 @@ namespace ForestClearing
             Console.WriteLine("USE (item) - uses an item of choice from your inventory or environment");
             Console.WriteLine("on the word around you but be careful and think. Items can be wasted that");
             Console.WriteLine("you might need later on!");
+            Console.WriteLine("There are other commands in the game! Try ones out that might seem obvious.");
+            Console.WriteLine("if you want to leave a room maybe its just as simple as saying leave or...");
         }
         public static string PlayerName()
         {

@@ -119,18 +119,17 @@ namespace ForestClearing
             }
         }
 
-        private static void EndlessSwamp()
+        public static void EndlessSwamp()
         {
             Console.Beep(800, 40);
             Console.Clear();
             Console.WriteLine("*******************************************************************");
-            Console.WriteLine("                                                                   ");
-            Console.WriteLine("                                                                   ");
-            Console.WriteLine("                                                                   ");
-            Console.WriteLine("                                                                   ");
-            Console.WriteLine("                                                                   ");
-            Console.WriteLine("                                                                   ");
-            Console.WriteLine();
+            Console.WriteLine("As you follow the small creek it quickly connects to a larger stream.");
+            Console.WriteLine("At the end of the stream is a vast swamp. Deep into the swamp is so");
+            Console.WriteLine("overgrown with hanging trees and mangroves that light has a hard time");
+            Console.WriteLine("penetrating it. Standing at the bank of the swamp you look around and");
+            Console.WriteLine("see there is no where else to go but further east into the actual swamp");
+            Console.WriteLine("or back west the way you came.");
             Console.WriteLine("*******************************************************************");
 
             while (true)
@@ -147,19 +146,22 @@ namespace ForestClearing
                 }
                 else if (response.ToLower() == "south")
                 {
-                    Map.SouthWoods();
+                    Console.Beep(200, 100);
+                    Console.WriteLine("You cannot go that way.");
                 }
                 else if (response.ToLower() == "north")
                 {
-                    Map.NorthWoods();
+                    Console.Beep(200, 100);
+                    Console.WriteLine("You cannot go that way.");
                 }
                 else if (response.ToLower() == "west")
                 {
-                    Map.CliffFace();
+                    Map.Clearing();
                 }
                 else if (response.ToLower() == "east")
                 {
-                    Map.EndlessSwamp();
+                    Console.Beep(200, 100);
+                    Console.WriteLine("The water is much too deep to walk.");
                 }
                 else
                 {
@@ -168,12 +170,75 @@ namespace ForestClearing
             }
         }
 
-        private static void CliffFace()
+        public static void CliffFace()
         {
-            throw new NotImplementedException();
+            Console.Beep(800, 40);
+            Console.Clear();
+            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("You follow the trail towards the cliff. The elevation is surprisingly");
+            Console.WriteLine("smooth as you stroll towards an open outcropping. At the top of the");
+            Console.WriteLine("outcropping you see a small hut with a sign in front of it. There is a");
+            Console.WriteLine("path going North that winds down into more woods. You can see the forest");
+            Console.WriteLine("clearing from the outcropping and further east a swamp that goes on for");
+            Console.WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
+            Console.WriteLine("*******************************************************************");
+            Console.WriteLine();
+
+            while (true)
+            {
+                Console.Write("Command: ");
+                string response = Console.ReadLine();
+                if (response.ToLower() == "inventory")
+                {
+                    MainMethod.DisplayInventory(inventory);
+                }
+                else if (response.ToLower() == "help")
+                {
+                    MainMethod.Help();
+                }
+                else if (response.ToLower() == "enter hut")
+                {
+                    Interiors.HintusHut();
+                }
+                else if (response.ToLower() == "south")
+                {
+                    Console.Beep(200, 100);
+                    Console.WriteLine("You cannot go that way.");
+                }
+                else if (response.ToLower() == "north")
+                {
+                    //Map.WestWoods();
+                }
+                else if (response.ToLower() == "west")
+                {
+                    Console.Beep(200, 100);
+                    Console.WriteLine("You cannot go that way.");
+                }
+                else if (response.ToLower() == "east")
+                {
+                    Map.Clearing();
+                }
+                else if (response.ToLower() == "inspect sign")
+                {
+                    Console.WriteLine("You see a sign that says \"Home of Hintus Maximus. Adventurer. Fighter. Lover.\"");
+                }
+                else if (response.ToLower() == "inspect")
+                {
+                    
+                    Console.WriteLine("You see a small hut with a sign in front of it. There is a");
+                    Console.WriteLine("path going North that winds down into more woods. You can see the forest");
+                    Console.WriteLine("clearing from the outcropping and further east a swamp that goes on for");
+                    Console.WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
+                    Console.WriteLine("*******************************************************************");
+                }
+                else
+                {
+                    Console.WriteLine("I do not understand that command.");
+                }
+            }
         }
 
-        private static void NorthWoods()
+        public static void NorthWoods()
         {
             
         }
