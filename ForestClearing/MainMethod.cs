@@ -25,6 +25,7 @@ namespace ForestClearing
         }
         public static void Help()
         {
+            
             Console.WriteLine();
             Console.WriteLine("Movement and action in this game are determined by simple commands");
             Console.WriteLine("that you enter into the console. Below is a list of commands that");
@@ -32,9 +33,13 @@ namespace ForestClearing
             Console.WriteLine("******************************************************************");
 
             Console.WriteLine("HELP - returns you to the help menu.");
+            Console.WriteLine("INSPECT - Inspect the world around you. Use it on an item or ");
+            Console.WriteLine("something specific in the environment by typing the things name after.");
             Console.WriteLine("INVENTORY - takes you to the inventory menu.");
+            Console.WriteLine("TAKE - pick up an item in the environment and put it in your bag.");
+            Console.WriteLine("ENTER - Enter a building or other space");
             Console.WriteLine("NORTH, SOUTH, EAST, or WEST - Moves you in the direction of choice");
-            Console.WriteLine("to different destinations.");
+            Console.WriteLine("to different destinations. You can use N, S, E, W to save time.");
             Console.WriteLine("USE (item) - uses an item of choice from your inventory or environment");
             Console.WriteLine("on the word around you but be careful and think. Items can be wasted that");
             Console.WriteLine("you might need later on!");
@@ -76,7 +81,34 @@ namespace ForestClearing
             foreach (string item in inventory)
             {
                 Console.WriteLine($"- {item}");
+                
             }
+        }
+        public static void GameOver()
+        {
+            Console.Beep(220, 200);
+            Console.Beep(247, 200);
+            Console.Beep(262, 200);
+            Console.Beep(330, 200);
+            Console.Beep(262, 200);
+            Console.Beep(220, 200);
+            Console.Beep(247, 200);
+            Console.Beep(262, 200);
+            Console.Beep(330, 200);
+            Console.Beep(247, 200);
+            Console.Beep(220, 200);
+            Console.Beep(247, 200);
+            Console.Beep(262, 200);
+            Console.Beep(330, 200);
+            Console.Beep(262, 200);
+            Console.Beep(220, 200);
+            Console.Beep(247, 200);
+            Console.Beep(262, 200);
+            Console.Beep(330, 200);
+            Console.Beep(247, 200);
+            Console.Beep(220, 400);
+            Console.WriteLine(" __   __  _______  __   __    ______   ___   _______  ______   __  \r\n|  | |  ||       ||  | |  |  |      | |   | |       ||      | |  | \r\n|  |_|  ||   _   ||  | |  |  |  _    ||   | |    ___||  _    ||  | \r\n|       ||  | |  ||  |_|  |  | | |   ||   | |   |___ | | |   ||  | \r\n|_     _||  |_|  ||       |  | |_|   ||   | |    ___|| |_|   ||__| \r\n  |   |  |       ||       |  |       ||   | |   |___ |       | __  \r\n  |___|  |_______||_______|  |______| |___| |_______||______| |__| ");
+            Environment.Exit(0);
         }
     }
 }
