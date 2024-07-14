@@ -9,16 +9,7 @@ namespace ForestClearing
     internal class Map
     {
         static List<string> inventory = MainMethod.InitInventory();
-        //public static void PlayerLocation(int x, int y)
-
-        //{
-        //    if (x == 0 && y == 0)
-        //        Map.Clearing();
-        //    else if (x == -1 && y == 0)
-        //        Map.SouthWoods();
-        //    else if (x == -2 && -y == 0)
-        //        Map.SouthSouthWoods();
-        //}
+        private static string previousLocation = "";
         private static void Template()
         {
             Console.Beep(800, 40);
@@ -32,7 +23,9 @@ namespace ForestClearing
             Console.WriteLine("");
             Console.WriteLine("*******************************************************************");
             Console.WriteLine();
-            
+
+            previousLocation = "";
+
             while (true)
             {
                 Console.Write("Command: ");
@@ -63,6 +56,7 @@ namespace ForestClearing
                 }
                 else
                 {
+                    Console.Beep(200, 100);
                     Console.WriteLine("I do not understand that command.");
                 }
             }
@@ -83,6 +77,8 @@ namespace ForestClearing
             Console.WriteLine("but accessible trail...");
             Console.WriteLine();
             Console.WriteLine("*******************************************************************");
+
+            previousLocation = "Clearing";
 
             while (true)
             {
@@ -132,6 +128,8 @@ namespace ForestClearing
             Console.WriteLine("or back west the way you came.");
             Console.WriteLine("*******************************************************************");
 
+            previousLocation = "EndlessSwamp";
+
             while (true)
             {
                 Console.Write("Command: ");
@@ -172,17 +170,35 @@ namespace ForestClearing
 
         public static void CliffFace()
         {
-            Console.Beep(800, 40);
-            Console.Clear();
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You follow the trail towards the cliff. The elevation is surprisingly");
-            Console.WriteLine("smooth as you stroll towards an open outcropping. At the top of the");
-            Console.WriteLine("outcropping you see a small hut with a sign in front of it. There is a");
-            Console.WriteLine("path going North that winds down into more woods. You can see the forest");
-            Console.WriteLine("clearing from the outcropping and further east a swamp that goes on for");
-            Console.WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            if (previousLocation == "Clearing")
+            {
+                Console.Beep(800, 40);
+                Console.Clear();
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You follow the trail towards the cliff. The elevation is surprisingly");
+                Console.WriteLine("smooth as you stroll towards an open outcropping. At the top of the");
+                Console.WriteLine("outcropping you see a small hut with a sign in front of it. There is a");
+                Console.WriteLine("path going North that winds down into more woods. You can see the forest");
+                Console.WriteLine("clearing from the outcropping and further east a swamp that goes on for");
+                Console.WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
+                Console.WriteLine("*******************************************************************");
+            }
+            else if (previousLocation == "WestWoods")
+            {
+                Console.Beep(800, 40);
+                Console.Clear();
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You come around the cliff face from the west woods, and the terrain");
+                Console.WriteLine("gradually opens up into an outcropping. At the top, you see a small");
+                Console.WriteLine("hut with a sign in front of it. There is a path going North that winds");
+                Console.WriteLine("down into more woods. You can see the forest clearing from the outcropping");
+                Console.WriteLine("and further east a swamp that goes on for what seems like forever.");
+                Console.WriteLine("You can see a green light faintly in the swamp.");
+                Console.WriteLine("*******************************************************************");
+            }
+
+
+            previousLocation = "CliffFace";
 
             while (true)
             {
@@ -207,7 +223,7 @@ namespace ForestClearing
                 }
                 else if (response.ToLower() == "north")
                 {
-                    //Map.WestWoods();
+                    Map.WestWoods();
                 }
                 else if (response.ToLower() == "west")
                 {
@@ -240,7 +256,167 @@ namespace ForestClearing
 
         public static void NorthWoods()
         {
-            
+            Console.Beep(800, 40);
+            Console.Clear();
+            if (previousLocation == "Clearing")
+            {
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You follow the path from the clearing as it takes you deeper into");
+                Console.WriteLine("the woods. You notice that this area is much calmer and peaceful");
+                Console.WriteLine("than the place you came from. You can hear birds chattering in the");
+                Console.WriteLine("trees. The trail opens into a small glade, with a giant sprawling");
+                Console.WriteLine("willow next to a small pool. The water at the pool is cool and clear.");
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine();
+            }
+            else if (previousLocation == "WestWoods")
+            {
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You follow the path from the woods east into the forest the light from");
+                Console.WriteLine("above trees dances on the forest floor. The trail opens into a small");
+                Console.WriteLine("glade, with a giant sprawling willow next to a small pool. The water");
+                Console.WriteLine("at the pool is cool and clear.");
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine();
+            }
+
+            previousLocation = "NorthWoods";
+
+            while (true)
+            {
+                Console.Write("Command: ");
+                string response = Console.ReadLine();
+                if (response.ToLower() == "inventory")
+                {
+                    MainMethod.DisplayInventory(inventory);
+                }
+                else if (response.ToLower() == "help")
+                {
+                    MainMethod.Help();
+                }
+                else if (response.ToLower() == "south")
+                {
+                    Map.Clearing();
+                }
+                else if (response.ToLower() == "north")
+                {
+                    
+                }
+                else if (response.ToLower() == "west")
+                {
+                    Map.WestWoods();
+                }
+                else if (response.ToLower() == "east")
+                {
+                    
+                }
+                else if (response.ToLower() == "inspect")
+                {
+                    Console.Beep(800, 40);
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine("You see a large willow with hanging branches. It sits next to a small");
+                    Console.WriteLine("pool. To the north the path winds around the tree into more woods.");
+                    Console.WriteLine("To the west is another forest path. There is nothing to the east.");
+                    Console.WriteLine("*******************************************************************");
+                }
+                else if (response.ToLower() == "inspect tree")
+                {
+                    Console.Beep(800, 40);
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine("You give the tree a closer look. Moss grows along the base and trunk");
+                    Console.WriteLine("of it which is as wide as three or four trees. It looks old and ancient");
+                    Console.WriteLine("The branches dip so low they kiss the pool occasionally, sending soft");
+                    Console.WriteLine("ripples on its surface. A small yellow bird lands on a branch and");
+                    Console.WriteLine("looks at you curiously. It sings a quiet sound that strangely sounds");
+                    Console.WriteLine("like words.");
+                    Console.WriteLine("*******************************************************************");
+                }
+                else if (response.ToLower() == "inspect pool")
+                {
+                    Console.Beep(1100, 40);
+                    Console.Beep(1000, 100);
+                    Console.Beep(1100, 40);
+                    Console.Beep(900, 100);
+                    Console.Beep(1200, 40);
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine("You walk closer to the base of the tree to look into the pool. Around ");
+                    Console.WriteLine("the pool small flowers and mushrooms sit. They look pristine and untouched.");
+                    Console.WriteLine("You gaze into the pool, it is so clear that you can see straight to the");
+                    Console.WriteLine("bottom. There is a small gold coin sitting among the pebbles and rocks.");
+                    Console.WriteLine("*******************************************************************");
+                }
+                else if (response.ToLower() == "talk bird" || (response.ToLower() == "talk to bird"))
+                {
+                    Dialogue.SmallBird();
+                }
+                else
+                {
+                    Console.Beep(200, 100);
+                    Console.WriteLine("I do not understand that command.");
+                }
+            }
+        }
+
+        private static void WestWoods()
+        {
+            if (previousLocation == "CliffFace")
+            {
+                Console.Beep(800, 40);
+                Console.Clear();
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You follow the path north that goes down into the woods. The path is");
+                Console.WriteLine("steep and you walk slow and steady until you reach an opening into the");
+                Console.WriteLine("woods. You are sweating slightly as you walk along a creek path. This");
+                Console.WriteLine("area of the woods is calm. You reach a small opening into the woods.");
+                Console.WriteLine("There is a sign next to a small bench carved out of a fallen tree. The");
+                Console.WriteLine("creek flows north where the trail breaks into a dense forest.");
+                Console.WriteLine("*******************************************************************");
+            }
+            else if (previousLocation == "NorthWoods")
+            {
+                Console.Beep(800, 40);
+                Console.Clear();
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You take the path west from the small glade. The path seems well-");
+                Console.WriteLine("maintained and you can hear a creek bubbling up ahead. You enter a");
+                Console.WriteLine("quiet area of the woods. You can see a creek following a path. There");
+                Console.WriteLine("is a sign next to a small bench carved out of a fallen tree. The");
+                Console.WriteLine("creek flows north where the trail breaks into a dense forest.");
+                Console.WriteLine("*******************************************************************");
+            }
+            previousLocation = "WestWoods";
+
+            while (true)
+            {
+                Console.Write("Command: ");
+                string response = Console.ReadLine();
+                if (response.ToLower() == "inventory")
+                {
+                    MainMethod.DisplayInventory(inventory);
+                }
+                else if (response.ToLower() == "help")
+                {
+                    MainMethod.Help();
+                }
+                else if (response.ToLower() == "south")
+                {
+                    Map.CliffFace();
+                }
+                else if (response.ToLower() == "north" || (response.ToLower() == "west"))
+                {
+                    Console.Beep(200, 100);
+                    Console.WriteLine("You cannot go that way.");
+                }
+                else if (response.ToLower() == "east")
+                {
+                    Map.NorthWoods();
+                }
+                else
+                {
+                    Console.Beep(200, 100);
+                    Console.WriteLine("I do not understand that command.");
+                }
+            }
         }
 
         public static void SouthWoods()
@@ -256,6 +432,9 @@ namespace ForestClearing
             Console.WriteLine("back to the clearing.");
             Console.WriteLine();
             Console.WriteLine("******************************************************************");
+
+            previousLocation = "SouthWoods";
+
             while (true)
             {
                 string response = Console.ReadLine();
@@ -308,6 +487,9 @@ namespace ForestClearing
             Console.WriteLine();
             Console.WriteLine("*******************************************************************");
             Console.WriteLine();
+
+            previousLocation = "SouthSouthWoods";
+
             while (true)
             {
                 Console.Write("Command: ");

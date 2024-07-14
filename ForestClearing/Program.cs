@@ -9,8 +9,9 @@ namespace ForestClearing
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             //INTRO
-            
+
             MainMethod.Intro();
             string playerName = MainMethod.PlayerName();
 
