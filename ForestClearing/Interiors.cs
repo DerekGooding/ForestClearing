@@ -38,7 +38,7 @@ namespace ForestClearing
                 {
                     Map.CliffFace();
                 }
-                else if (response.ToLower() == "talk" || response.ToLower() == "talk to Hintus" || response.ToLower() == "talk Hintus")
+                else if (response.ToLower() == "talk" || response.ToLower() == "talk to hintus" || response.ToLower() == "talk hintus")
                 {
                     Dialogue.Hintus();
                 }
@@ -47,6 +47,11 @@ namespace ForestClearing
                     Console.WriteLine("I do not understand that command.");
                 }
             }
+        }
+
+        internal static void Inn()
+        {
+
         }
     }
 }
