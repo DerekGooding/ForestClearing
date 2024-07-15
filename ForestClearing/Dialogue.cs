@@ -122,7 +122,12 @@ namespace ForestClearing
 
         internal static void SmallBird()
         {
+            List<string> ArturoDialog = new List<string>();
+            ArturoDialog.Add("1 - And who are you... my liege ?");
+            ArturoDialog.Add("2 - Leave");
+
             bool dialogDone = false;
+            bool knowsArturo = false;
 
             if (!knowsBird)
             {
@@ -167,6 +172,9 @@ namespace ForestClearing
                         Console.Write("Arturo: ");
                         PrintBirdDialog("I am the great king Arturo. Leader of the Yellow Feather Coalition. Sire to hundreds of princelings.");
                         PrintBirdDialog("Heir to the North Woods and contender for the South Wood Kingdom. My reach is long and my Harem is endless.");
+                        Console.WriteLine();
+                        Console.WriteLine("3 - Where did you learn to speak?");
+                        knowsArturo = true;
                         break;
                     case "2":
                         dialogDone = true;
@@ -175,6 +183,16 @@ namespace ForestClearing
                         Console.WriteLine("You are back in the Glade.");
                         Console.WriteLine("*******************************************************************");
                         Console.WriteLine();
+                        break;
+                    case "3":
+                        if (knowsArturo)
+                        {
+                            PrintBirdDialog("All birds can speak human, to some extent. Great birds like me can do it well.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("That is not a valid choice");
+                        }
                         break;
                     default:
                         Console.WriteLine("That is not a valid choice.");

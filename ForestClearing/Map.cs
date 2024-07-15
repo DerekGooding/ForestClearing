@@ -161,8 +161,11 @@ namespace ForestClearing
                 }
                 else if (response.ToLower() == "east")
                 {
-                    Console.Beep(200, 100);
-                    Console.WriteLine("The water is much too deep to walk.");
+                    Interiors.SwampMaze();
+                }
+                else if (response.ToLower() == "use canoe")
+                {
+                    Interiors.SwampMaze();
                 }
                 else
                 {
@@ -557,6 +560,17 @@ namespace ForestClearing
                 Console.WriteLine("*******************************************************************");
                 Console.WriteLine();
             }
+            else if (previousLocation == "Church")
+            {
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You leave the church grounds and move North. The homes on this side of");
+                Console.WriteLine("town are much larger, and instead of farms these homes are covered in");
+                Console.WriteLine("beautiful gardens and stone sculptures. Some of the homes are made of");
+                Console.WriteLine("polished stone. There is a small road south that leads to a massive");
+                Console.WriteLine("church.");
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine();
+            }
 
             previousLocation = "EastTown";
 
@@ -574,7 +588,7 @@ namespace ForestClearing
                 }
                 else if (response.ToLower() == "south")
                 {
-                    //church
+                    Map.Church();
                 }
                 else if (response.ToLower() == "north")
                 {
@@ -587,6 +601,70 @@ namespace ForestClearing
                 else if (response.ToLower() == "east")
                 {
                     Console.WriteLine("There is nothing east but plains.");
+                }
+                else
+                {
+                    Console.Beep(200, 100);
+                    Console.WriteLine("I do not understand that command.");
+                }
+            }
+        }
+
+        public static void Church()
+        {
+            Console.Beep(800, 40);
+            Console.Clear();
+            if (previousLocation == "EastTown")
+            {
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You follow the path south and reach the front of a large church. The");
+                Console.WriteLine("church appears to be abandoned. To the south is a large graveyard,");
+                Console.WriteLine("which is blocked and bordered by a large iron fence.");
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine();
+            }
+
+            previousLocation = "Church";
+
+            while (true)
+            {
+                Console.Write("Command: ");
+                string response = Console.ReadLine();
+                if (response.ToLower() == "inventory")
+                {
+                    MainMethod.DisplayInventory(inventory);
+                }
+                else if (response.ToLower() == "help")
+                {
+                    MainMethod.Help();
+                }
+                else if (response.ToLower() == "south")
+                {
+                    Console.WriteLine("Your path to the graveyard is blocked by a tall iron fence that");
+                    Console.WriteLine("wraps around the entire graveyard.");
+                }
+                else if (response.ToLower() == "north")
+                {
+                    Map.EastTown();
+                }
+                else if (response.ToLower() == "west")
+                {
+                    Console.WriteLine("There is nothing that way for you.");
+                }
+                else if (response.ToLower() == "east")
+                {
+                    Console.WriteLine("There is nothing that way for you.");
+                }
+                else if (response.ToLower() == "inspect church")
+                {
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine("The church appears to be in disrepair. A large tower sits to");
+                    Console.WriteLine("the west side of the church. The massive wood door in front");
+                    Console.WriteLine("seems to be the only part of the church not left to the elements");
+                    Console.WriteLine("Intricate carvings of nature cover the door, which is bordered");
+                    Console.WriteLine("with gold inlay.");
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine();
                 }
                 else
                 {
@@ -892,6 +970,26 @@ namespace ForestClearing
                     MainMethod.GameOver();
 
                 }
+                else if (response.ToLower() == "use pickle")
+                {
+                    Console.WriteLine("You toss a pickle at the beast and it looks at the pickle and then you curiously.");
+                }
+                else if (response.ToLower() == "attack" || response.ToLower() == "fight")
+                {
+                    Console.Clear();
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine("You charge the beast valiantly. You don't have a weapon so you grab");
+                    Console.WriteLine("ahold of the beasts fur in an attempt to throw it to the ground. All");
+                    Console.WriteLine("six hundred pounds of the creature simply sits on you and you feel the");
+                    Console.WriteLine("crushing pressure suck the air out of your lungs. The beast swipes once");
+                    Console.WriteLine("at your face raking it open. His next swipe is at your throat and you");
+                    Console.WriteLine("bleed out almost immediately.");
+                    Console.WriteLine();
+                    Console.WriteLine("What it the world made you think you could pull that off?");
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine();
+                    MainMethod.GameOver();
+                }
                 else if (response.ToLower() == "west")
                 {
                     Console.Beep(200, 100);
@@ -901,6 +999,66 @@ namespace ForestClearing
                 {
                     Console.Beep(200, 100);
                     Console.WriteLine("You cannot go that way.");
+                }
+                else
+                {
+                    Console.Beep(200, 100);
+                    Console.WriteLine("I do not understand that command.");
+                }
+            }
+        }
+
+        internal static void SwampIsland()
+        {
+            Console.Beep(800, 40);
+            Console.Clear();
+            if (previousLocation == "EndlessSwamp")
+            {
+                Console.Beep(1100, 40);
+                Console.Beep(1000, 100);
+                Console.Beep(1100, 40);
+                Console.Beep(900, 100);
+                Console.Beep(1200, 40);
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine("You made it!!!");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("*******************************************************************");
+                Console.WriteLine();
+            }
+
+            previousLocation = "";
+
+            while (true)
+            {
+                Console.Write("Command: ");
+                string response = Console.ReadLine();
+                if (response.ToLower() == "inventory")
+                {
+                    MainMethod.DisplayInventory(inventory);
+                }
+                else if (response.ToLower() == "help")
+                {
+
+                }
+                else if (response.ToLower() == "south")
+                {
+
+                }
+                else if (response.ToLower() == "north")
+                {
+
+                }
+                else if (response.ToLower() == "west")
+                {
+
+                }
+                else if (response.ToLower() == "east")
+                {
+
                 }
                 else
                 {

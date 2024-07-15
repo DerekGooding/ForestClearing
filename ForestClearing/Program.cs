@@ -18,7 +18,6 @@ namespace ForestClearing
             Map.Clearing();
 
 
-
             int x = 0;
             int y = 0;
 
