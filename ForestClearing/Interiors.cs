@@ -120,7 +120,7 @@ namespace ForestClearing
             }
         }
 
-        public static void SwampMaze(int swampCount = 0)
+        public static void SwampMaze(int swampCount = 0, int fatigue = 0)
         {
             Console.Beep(800, 40);
             Console.Clear();
@@ -159,7 +159,8 @@ namespace ForestClearing
                         Console.WriteLine("*******************************************************************");
                         Console.WriteLine("You move South and are surrounded by swamp");
                         Console.WriteLine("*******************************************************************");
-                        swampCount = SwampLogic(0); 
+                        swampCount = SwampLogic(0);
+                        fatigue = KillerFatigue(fatigue);
                     }
                 }
                 else if (response.ToLower() == "north")
@@ -172,6 +173,7 @@ namespace ForestClearing
                         Console.WriteLine("You move North and are surrounded by swamp");
                         Console.WriteLine("*******************************************************************");
                         swampCount = SwampLogic(1); // Update swampCount
+                        fatigue = KillerFatigue(fatigue);
                     }
                     else
                     {
@@ -181,6 +183,7 @@ namespace ForestClearing
                         Console.WriteLine("You move North and are surrounded by swamp");
                         Console.WriteLine("*******************************************************************");
                         swampCount = SwampLogic(0); // Reset swampCount
+                        fatigue = KillerFatigue(fatigue);
                     }
                 }
                 else if (response.ToLower() == "west")
@@ -192,7 +195,8 @@ namespace ForestClearing
                         Console.WriteLine("*******************************************************************");
                         Console.WriteLine("You move West and are surrounded by swamp");
                         Console.WriteLine("*******************************************************************");
-                        swampCount = SwampLogic(2); 
+                        swampCount = SwampLogic(2);
+                        fatigue = KillerFatigue(fatigue);
                     }
                     else if (swampCount == 2)
                     {
@@ -201,7 +205,8 @@ namespace ForestClearing
                         Console.WriteLine("*******************************************************************");
                         Console.WriteLine("You move West and are surrounded by swamp");
                         Console.WriteLine("*******************************************************************");
-                        swampCount = SwampLogic(3); 
+                        swampCount = SwampLogic(3);
+                        fatigue = KillerFatigue(fatigue);
                     }
                     else
                     {
@@ -210,7 +215,8 @@ namespace ForestClearing
                         Console.WriteLine("*******************************************************************");
                         Console.WriteLine("You move West and are surrounded by swamp");
                         Console.WriteLine("*******************************************************************");
-                        swampCount = SwampLogic(0); 
+                        swampCount = SwampLogic(0);
+                        fatigue = KillerFatigue(fatigue);
                     }
                 }
                 else if (response.ToLower() == "east")
@@ -220,9 +226,46 @@ namespace ForestClearing
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine("You move East and are surrounded by swamp");
                     Console.WriteLine("*******************************************************************");
-                    swampCount = SwampLogic(0); 
+                    swampCount = SwampLogic(0);
+                    fatigue = KillerFatigue(fatigue);
                 }
-
+                if (fatigue >= 3) // Replace with your desired fatal threshold
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("You are starting to feel extremely tired.");
+                    Console.WriteLine();
+                }
+                if (fatigue >= 6) 
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Every use of the paddle feels like it takes up all of your energy.");
+                    Console.WriteLine("You have never been this tired in your life.");
+                    Console.WriteLine();
+                }
+                if (fatigue >= 9) 
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Your vision drops to a pinpoint. It feels hard to even breathe.");
+                    Console.WriteLine("You dont know how much longer you can go on.");
+                    Console.WriteLine();
+                }
+                if (fatigue >= 10) 
+                {
+                    Console.Clear();
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine("With one last burst of energy you try to paddle but its useless. The once");
+                    Console.WriteLine("quiet swamp now feels bursting with sound and life. Black tendrils grasp");
+                    Console.WriteLine("and pull at your arms and you have no strength to fight. You close your");
+                    Console.WriteLine("eyes and feel yourself get pulled into warm waters. You are being pulled");
+                    Console.WriteLine("further down and the urge to breathe is burning in your chest. You fight");
+                    Console.WriteLine("with what little strength you can muster before sucking in thick globs");
+                    Console.WriteLine("of warm swamp. The tendrils wrap around you tighter and you are pulled");
+                    Console.WriteLine("into the deep, never to surface.");
+                    Console.WriteLine("*******************************************************************");
+                    Console.WriteLine();
+                    MainMethod.GameOver();
+                    break;
+                }
                 if (swampFinished)
                 {
                     break;
@@ -232,6 +275,10 @@ namespace ForestClearing
         public static int SwampLogic(int swampAdd)
         {
             return swampAdd;
+        }
+        public static int KillerFatigue(int Swampfatigue)
+        {
+        return Swampfatigue + 1; 
         }
     }
 }
