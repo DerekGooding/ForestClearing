@@ -16,9 +16,9 @@ internal static class MainMethod
         Console.WriteLine("you a few quick questions.");
         Console.WriteLine("If you would like some help, type help at any time...");
     }
+
     public static void Help()
     {
-        
         Console.WriteLine();
         Console.WriteLine("Movement and action in this game are determined by simple commands");
         Console.WriteLine("that you enter into the console. Below is a list of commands that");
@@ -39,13 +39,13 @@ internal static class MainMethod
         Console.WriteLine("There are other commands in the game! Try ones out that might seem obvious.");
         Console.WriteLine("if you want to leave a room maybe its just as simple as saying leave or...");
     }
+
     public static string? PlayerName()
     {
         string? name = "";
         bool playerNameValid = false;
         while (!playerNameValid)
         {
-            
             Console.Write("What is your name: ");
             name = Console.ReadLine();
             if (string.IsNullOrEmpty(name))
@@ -58,12 +58,12 @@ internal static class MainMethod
             }
             else
             {
-                playerNameValid = true;                    
+                playerNameValid = true;
             }
-         
         }
         return name;
     }
+
     public static List<string> InitInventory()
     {
         List<string> inventory = new List<string>();
@@ -71,14 +71,15 @@ internal static class MainMethod
         inventory.Add("dirty penny");
         return inventory;
     }
+
     public static void DisplayInventory(List<string> inventory)
     {
         foreach (string item in inventory)
         {
             Console.WriteLine($"- {item}");
-            
         }
     }
+
     public static void GameOver()
     {
         Console.Beep(220, 200);

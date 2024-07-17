@@ -13,6 +13,7 @@ public static class Inventory
             Console.WriteLine(item);
         }
     }
+
     public static string? PlayerName()
     {
         string? name;

@@ -4,6 +4,7 @@ internal static class Dialogue
 {
     private static bool metHintus = false;
     private static bool knowsBird = false;
+
     public static void PrintHintusDialog(string message)
     {
         Console.Write("Hintus: ");
@@ -11,9 +12,9 @@ internal static class Dialogue
         Console.WriteLine(message);
         Console.ResetColor();
     }
+
     public static void Hintus()
     {
-
         bool dialogDone = false;
         bool knowsRathbone = false;
         bool romanCitizen = false;
@@ -85,6 +86,7 @@ internal static class Dialogue
                         Console.WriteLine("That is not a valid choice.");
                     }
                     break;
+
                 case "4":
                     if (romanCitizen)
                     {
@@ -99,7 +101,6 @@ internal static class Dialogue
                 default:
                     Console.WriteLine("That is not a valid choice.");
                     break;
-
             }
 
             if (knowsRathbone)
@@ -110,7 +111,6 @@ internal static class Dialogue
             {
                 Console.WriteLine("4 - Roman Citizen?");
             }
-
         } while (!dialogDone);
     }
 
@@ -170,6 +170,7 @@ internal static class Dialogue
                     Console.WriteLine("3 - Where did you learn to speak?");
                     knowsArturo = true;
                     break;
+
                 case "2":
                     dialogDone = true;
                     Console.Clear();
@@ -178,6 +179,7 @@ internal static class Dialogue
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine();
                     break;
+
                 case "3":
                     if (knowsArturo)
                     {
@@ -188,12 +190,14 @@ internal static class Dialogue
                         Console.WriteLine("That is not a valid choice");
                     }
                     break;
+
                 default:
                     Console.WriteLine("That is not a valid choice.");
                     break;
             }
         } while (!dialogDone);
     }
+
     private static void PrintBirdDialog(string message)
     {
         Console.ForegroundColor = ConsoleColor.Yellow;

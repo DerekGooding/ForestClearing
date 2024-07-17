@@ -2,7 +2,7 @@
 
 internal static class Program
 {
-    static void Main()
+    private static void Main()
     {
         ForegroundColor = ConsoleColor.Green;
 

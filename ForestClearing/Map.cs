@@ -2,8 +2,9 @@
 
 internal static class Map
 {
-    static List<string> inventory = MainMethod.InitInventory();
+    private static List<string> inventory = MainMethod.InitInventory();
     private static string previousLocation = "";
+
     private static void Template()
     {
         Console.Beep(800, 40);
@@ -33,23 +34,18 @@ internal static class Map
             }
             else if (response.ToLower() == "help")
             {
-                
             }
             else if (response.ToLower() == "south")
             {
-                
             }
             else if (response.ToLower() == "north")
             {
-                
             }
             else if (response.ToLower() == "west")
             {
-                
             }
             else if (response.ToLower() == "east")
             {
-                
             }
             else
             {
@@ -58,19 +54,20 @@ internal static class Map
             }
         }
     }
+
     public static void Clearing()
     {
         Console.Beep(800, 40);
         Console.Clear();
         Console.WriteLine("*******************************************************************");
-        Console.WriteLine("You take a quick look around the clearing. There isn't much going " );
+        Console.WriteLine("You take a quick look around the clearing. There isn't much going ");
         Console.WriteLine("on, a small creek runs east from west. The sky is cloudless. To the");
         Console.WriteLine("North you see a path through the trees. You look West and see that ");
         Console.WriteLine("the trees sit near a cliff face, with a small trail leading to the ");
         Console.WriteLine("cliff. The creek heading east seems to follow a very small break in");
-        Console.WriteLine("the trees, but it looks like a tight fit. As you turn around to see");                                                               
+        Console.WriteLine("the trees, but it looks like a tight fit. As you turn around to see");
         Console.WriteLine("south of you, a large crash is heard. There is a large cloud of dust");
-        Console.WriteLine("coming from somewhere deep in the woods. You can see an overgrown but"); 
+        Console.WriteLine("coming from somewhere deep in the woods. You can see an overgrown but");
         Console.WriteLine("but accessible trail...");
         Console.WriteLine();
         Console.WriteLine("*******************************************************************");
@@ -108,7 +105,7 @@ internal static class Map
             else
             {
                 Console.WriteLine("I do not understand that command.");
-            } 
+            }
         }
     }
 
@@ -197,7 +194,6 @@ internal static class Map
             Console.WriteLine("*******************************************************************");
         }
 
-
         previousLocation = "CliffFace";
 
         while (true)
@@ -240,7 +236,6 @@ internal static class Map
             }
             else if (response.ToLower() == "inspect")
             {
-                
                 Console.WriteLine("You see a small hut with a sign in front of it. There is a");
                 Console.WriteLine("path going North that winds down into more woods. You can see the forest");
                 Console.WriteLine("clearing from the outcropping and further east a swamp that goes on for");
@@ -444,7 +439,7 @@ internal static class Map
             }
             else if (response.ToLower() == "east")
             {
-               //Graveyard event
+                //Graveyard event
             }
             else
             {
@@ -520,7 +515,6 @@ internal static class Map
             }
             else if (response.ToLower() == "north")
             {
-                
             }
             else if (response.ToLower() == "west")
             {
@@ -901,9 +895,10 @@ internal static class Map
             else
             {
                 Console.WriteLine("I do not understand that command.");
-            } 
+            }
         }
     }
+
     public static void SouthSouthWoods()
     {
         Console.Beep(800, 40);
@@ -962,7 +957,6 @@ internal static class Map
                 Console.WriteLine("*******************************************************************");
                 Console.WriteLine();
                 MainMethod.GameOver();
-
             }
             else if (response.ToLower() == "use pickle")
             {
@@ -1036,23 +1030,18 @@ internal static class Map
             }
             else if (response.ToLower() == "help")
             {
-
             }
             else if (response.ToLower() == "south")
             {
-
             }
             else if (response.ToLower() == "north")
             {
-
             }
             else if (response.ToLower() == "west")
             {
-
             }
             else if (response.ToLower() == "east")
             {
-
             }
             else
             {

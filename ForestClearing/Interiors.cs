@@ -2,7 +2,8 @@
 
 internal static class Interiors
 {
-    static List<string> inventory = MainMethod.InitInventory();
+    private static List<string> inventory = MainMethod.InitInventory();
+
     internal static void Template()
     {
         Console.Beep(800, 40);
@@ -29,15 +30,14 @@ internal static class Interiors
             }
             else if (response.ToLower() == "exit")
             {
-
             }
-
             else
             {
                 Console.WriteLine("I do not understand that command.");
             }
         }
     }
+
     internal static void HintusHut()
     {
         Console.Beep(800, 40);
@@ -105,7 +105,6 @@ internal static class Interiors
             {
                 Map.WestTown();
             }
-
             else
             {
                 Console.WriteLine("I do not understand that command.");
@@ -143,7 +142,7 @@ internal static class Interiors
                 if (swampCount == 3)
                 {
                     Map.SwampIsland();
-                    swampFinished = true; 
+                    swampFinished = true;
                 }
                 else
                 {
@@ -228,21 +227,21 @@ internal static class Interiors
                 Console.WriteLine("You are starting to feel extremely tired.");
                 Console.WriteLine();
             }
-            if (fatigue >= 6) 
+            if (fatigue >= 6)
             {
                 Console.WriteLine();
                 Console.WriteLine("Every use of the paddle feels like it takes up all of your energy.");
                 Console.WriteLine("You have never been this tired in your life.");
                 Console.WriteLine();
             }
-            if (fatigue >= 9) 
+            if (fatigue >= 9)
             {
                 Console.WriteLine();
                 Console.WriteLine("Your vision drops to a pinpoint. It feels hard to even breathe.");
                 Console.WriteLine("You dont know how much longer you can go on.");
                 Console.WriteLine();
             }
-            if (fatigue >= 10) 
+            if (fatigue >= 10)
             {
                 Console.Clear();
                 Console.WriteLine("*******************************************************************");
@@ -265,12 +264,14 @@ internal static class Interiors
             }
         }
     }
+
     public static int SwampLogic(int swampAdd)
     {
         return swampAdd;
     }
+
     public static int KillerFatigue(int Swampfatigue)
     {
-    return Swampfatigue + 1; 
+        return Swampfatigue + 1;
     }
 }
