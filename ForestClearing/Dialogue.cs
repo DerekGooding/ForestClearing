@@ -7,10 +7,10 @@ internal static class Dialogue
 
     public static void PrintHintusDialog(string message)
     {
-        Console.Write("Hintus: ");
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(message);
-        Console.ResetColor();
+        Write("Hintus: ");
+        ForegroundColor = ConsoleColor.Red;
+        WriteLine(message);
+        ResetColor();
     }
 
     public static void Hintus()
@@ -123,23 +123,23 @@ internal static class Dialogue
         if (!knowsBird)
         {
             ClearBeep();
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You greet the bird softly and stick out your finger. The bird bites");
-            Console.WriteLine("it and begins to speak.");
-            Console.WriteLine("*******************************************************************");
-            Console.Write("Bird: ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Do not touch me, peasant. Among my kind I am a great and powerful");
-            Console.WriteLine("King. I will forgive your transgression this time, serf.");
+            WriteLine("*******************************************************************");
+            WriteLine("You greet the bird softly and stick out your finger. The bird bites");
+            WriteLine("it and begins to speak.");
+            WriteLine("*******************************************************************");
+            Write("Bird: ");
+            ForegroundColor = ConsoleColor.Yellow;
+            WriteLine("Do not touch me, peasant. Among my kind I am a great and powerful");
+            WriteLine("King. I will forgive your transgression this time, serf.");
             knowsBird = true;
         }
         else
         {
             ClearBeep();
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("The bird sits there and puffs out its chest. It waits patiently on ");
-            Console.WriteLine("a branch.");
-            Console.WriteLine("*******************************************************************");
+            WriteLine("*******************************************************************");
+            WriteLine("The bird sits there and puffs out its chest. It waits patiently on ");
+            WriteLine("a branch.");
+            WriteLine("*******************************************************************");
         }
 
         do
