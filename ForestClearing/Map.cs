@@ -89,14 +89,9 @@ internal static class Map
             Write("Command: ");
             string? response = ReadLine();
             MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
-            if (pick != null)
-            {
-                pick.Invoke();
-            }
-            else
-            {
-                WriteLine("I do not understand that command.");
-            }
+            pick?.Invoke();
+
+            WriteLine("I do not understand that command.");
         }
     }
 
@@ -130,14 +125,9 @@ internal static class Map
             Write("Command: ");
             string? response = ReadLine();
             MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
-            if (pick != null)
-            {
-                pick.Invoke();
-            }
-            else
-            {
-                WriteLine("I do not understand that command.");
-            }
+            pick?.Invoke();
+
+            WriteLine("I do not understand that command.");
         }
     }
 
@@ -195,14 +185,9 @@ internal static class Map
             Write("Command: ");
             string? response = ReadLine();
             MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
-            if (pick != null)
-            {
-                pick.Invoke();
-            }
-            else
-            {
-                WriteLine("I do not understand that command.");
-            }
+            pick?.Invoke();
+
+            WriteLine("I do not understand that command.");
         }
     }
 
