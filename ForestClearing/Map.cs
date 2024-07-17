@@ -146,79 +146,62 @@ internal static class Map
         if (previousLocation == "Clearing")
         {
             ClearBeep();
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You follow the trail towards the cliff. The elevation is surprisingly");
-            Console.WriteLine("smooth as you stroll towards an open outcropping. At the top of the");
-            Console.WriteLine("outcropping you see a small hut with a sign in front of it. There is a");
-            Console.WriteLine("path going North that winds down into more woods. You can see the forest");
-            Console.WriteLine("clearing from the outcropping and further east a swamp that goes on for");
-            Console.WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
-            Console.WriteLine("*******************************************************************");
+            WriteLine("*******************************************************************");
+            WriteLine("You follow the trail towards the cliff. The elevation is surprisingly");
+            WriteLine("smooth as you stroll towards an open outcropping. At the top of the");
+            WriteLine("outcropping you see a small hut with a sign in front of it. There is a");
+            WriteLine("path going North that winds down into more woods. You can see the forest");
+            WriteLine("clearing from the outcropping and further east a swamp that goes on for");
+            WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
+            WriteLine("*******************************************************************");
         }
         else if (previousLocation == "WestWoods")
         {
             ClearBeep();
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You come around the cliff face from the west woods, and the terrain");
-            Console.WriteLine("gradually opens up into an outcropping. At the top, you see a small");
-            Console.WriteLine("hut with a sign in front of it. There is a path going North that winds");
-            Console.WriteLine("down into more woods. You can see the forest clearing from the outcropping");
-            Console.WriteLine("and further east a swamp that goes on for what seems like forever.");
-            Console.WriteLine("You can see a green light faintly in the swamp.");
-            Console.WriteLine("*******************************************************************");
+            WriteLine("*******************************************************************");
+            WriteLine("You come around the cliff face from the west woods, and the terrain");
+            WriteLine("gradually opens up into an outcropping. At the top, you see a small");
+            WriteLine("hut with a sign in front of it. There is a path going North that winds");
+            WriteLine("down into more woods. You can see the forest clearing from the outcropping");
+            WriteLine("and further east a swamp that goes on for what seems like forever.");
+            WriteLine("You can see a green light faintly in the swamp.");
+            WriteLine("*******************************************************************");
         }
 
         previousLocation = "CliffFace";
 
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("enter hut", Interiors.HintusHut),
+            new("south", WrongDirectionBeep),
+            new("north", WestWoods),
+            new("west", WrongDirectionBeep),
+            new("east", Clearing),
+            new("inspect sign", () => WriteLine("You see a sign that says \"Home of Hintus Maximus. Adventurer. Fighter. Lover.\"")),
+            new("inspect", () =>
+            {
+                WriteLine("You see a small hut with a sign in front of it. There is a");
+                WriteLine("path going North that winds down into more woods. You can see the forest");
+                WriteLine("clearing from the outcropping and further east a swamp that goes on for");
+                WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
+                WriteLine("*******************************************************************");
+            }),
+        ];
+
         while (true)
         {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
+            Write("Command: ");
+            string? response = ReadLine();
+            MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
+            if (pick != null)
             {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "enter hut")
-            {
-                Interiors.HintusHut();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("You cannot go that way.");
-            }
-            else if (response.ToLower() == "north")
-            {
-                Map.WestWoods();
-            }
-            else if (response.ToLower() == "west")
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("You cannot go that way.");
-            }
-            else if (response.ToLower() == "east")
-            {
-                Map.Clearing();
-            }
-            else if (response.ToLower() == "inspect sign")
-            {
-                Console.WriteLine("You see a sign that says \"Home of Hintus Maximus. Adventurer. Fighter. Lover.\"");
-            }
-            else if (response.ToLower() == "inspect")
-            {
-                Console.WriteLine("You see a small hut with a sign in front of it. There is a");
-                Console.WriteLine("path going North that winds down into more woods. You can see the forest");
-                Console.WriteLine("clearing from the outcropping and further east a swamp that goes on for");
-                Console.WriteLine("what seems like forever. You can see a green light faintly in the swamp.");
-                Console.WriteLine("*******************************************************************");
+                pick.Invoke();
             }
             else
             {
-                Console.WriteLine("I do not understand that command.");
+                WriteLine("I do not understand that command.");
             }
         }
     }
