@@ -2,7 +2,7 @@
 
 internal static class Interiors
 {
-    private static List<string> inventory = MainMethod.InitInventory();
+    private static readonly List<string> inventory = MainMethod.InitInventory();
 
     internal static void Template()
     {

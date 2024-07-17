@@ -115,9 +115,7 @@ internal static class Dialogue
 
     internal static void SmallBird()
     {
-        List<string> ArturoDialog = new List<string>();
-        ArturoDialog.Add("1 - And who are you... my liege ?");
-        ArturoDialog.Add("2 - Leave");
+        List<string> ArturoDialog = ["1 - And who are you... my liege ?", "2 - Leave"];
 
         bool dialogDone = false;
         bool knowsArturo = false;
