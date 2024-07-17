@@ -1,4 +1,6 @@
-﻿namespace ForestClearing;
+﻿using ForestClearing.Model;
+
+namespace ForestClearing;
 
 internal static class Map
 {
@@ -72,37 +74,28 @@ internal static class Map
 
         previousLocation = "Clearing";
 
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south", SouthWoods),
+            new("north", NorthWoods),
+            new("west", CliffFace),
+            new("east", EndlessSwamp),
+        ];
+
         while (true)
         {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
+            Write("Command: ");
+            string? response = ReadLine();
+            MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
+            if (pick != null)
             {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Map.SouthWoods();
-            }
-            else if (response.ToLower() == "north")
-            {
-                Map.NorthWoods();
-            }
-            else if (response.ToLower() == "west")
-            {
-                Map.CliffFace();
-            }
-            else if (response.ToLower() == "east")
-            {
-                Map.EndlessSwamp();
+                pick.Invoke();
             }
             else
             {
-                Console.WriteLine("I do not understand that command.");
+                WriteLine("I do not understand that command.");
             }
         }
     }
