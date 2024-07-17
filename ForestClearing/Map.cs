@@ -7,8 +7,7 @@ internal static class Map
 
     private static void Template()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "")
         {
             Console.WriteLine("*******************************************************************");
