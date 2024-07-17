@@ -67,27 +67,11 @@ internal static class Interiors
         WriteLine("*******************************************************************");
         WriteLine();
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
-            {
-                Main.DisplayInventory();
-            }
-            else if (response.ToLower() == "help")
-            {
-                Main.Help();
-            }
-            else if (response.ToLower() == "exit" || response.ToLower() == "exit inn")
-            {
-                Map.WestTown();
-            }
-            else
-            {
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+        List<MenuOption> options = [];
+        options.AddRange(DefaultOptions);
+        options.AddRange(SameResult(["exit", "exit inn"], Map.WestTown));
+
+        CallMenu(options);
     }
 
     public static void SwampMaze(int swampCount = 0, int fatigue = 0)
