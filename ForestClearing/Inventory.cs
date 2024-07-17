@@ -1,41 +1,41 @@
-﻿namespace MiniProject;
+﻿using ForestClearing.Model;
+
+namespace MiniProject;
 
 public static class Inventory
 {
     public static void InventoryOne()
     {
-        List<string> inventory = new List<string>();
-        inventory.Add("paperclip");
-        inventory.Add("granola bar");
-        Console.WriteLine($" THIS IS YOUR INVENTORY: ");
-        foreach (string item in inventory)
-        {
-            Console.WriteLine(item);
-        }
+        List<string> inventory = ["paperclip", "granola bar"];
+        WriteLine($" THIS IS YOUR INVENTORY: ");
+        inventory.ForEach(WriteLine);
     }
 
-    public static string? PlayerName()
+    public static string PlayerName()
     {
-        string? name;
-        bool playerName = false;
-        do
+        List<MenuOption> options =
+        [
+            new("INVENTORY", InventoryOne),
+        ];
+        string name = string.Empty;
+        while (string.IsNullOrEmpty(name))
         {
-            Console.Write("What is your name: ");
-            name = Console.ReadLine();
-            if (string.IsNullOrEmpty(name))
+            Write("What is your name: ");
+            string? result = ReadLine();
+            MenuOption? pick = options.Find(x => x.Key.Equals(result, StringComparison.OrdinalIgnoreCase));
+            if (pick != null)
             {
-                Console.WriteLine("I do not understand that.");
+                pick.Invoke();
             }
-            else if (name == "INVENTORY")
+            else if (string.IsNullOrEmpty(result))
             {
-                Inventory.InventoryOne();
+                WriteLine("I do not understand that.");
             }
             else
             {
-                playerName = true;
-                return name;
+                name = result;
             }
-        } while (!playerName);
-        return null;
+        }
+        return name;
     }
 }

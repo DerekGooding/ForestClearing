@@ -1,4 +1,6 @@
-﻿namespace ForestClearing;
+﻿using ForestClearing.Model;
+
+namespace ForestClearing;
 
 internal static class MainMethod
 {
@@ -40,25 +42,29 @@ internal static class MainMethod
         Console.WriteLine("if you want to leave a room maybe its just as simple as saying leave or...");
     }
 
-    public static string? PlayerName()
+    public static string PlayerName()
     {
-        string? name = "";
-        bool playerNameValid = false;
-        while (!playerNameValid)
+        List<MenuOption> options =
+        [
+            new("help", Help),
+        ];
+        string name = string.Empty;
+        while (string.IsNullOrEmpty(name))
         {
-            Console.Write("What is your name: ");
-            name = Console.ReadLine();
-            if (string.IsNullOrEmpty(name))
+            Write("What is your name: ");
+            string? result = ReadLine();
+            MenuOption? pick = options.Find(x => x.Key.Equals(result, StringComparison.OrdinalIgnoreCase));
+            if(pick != null)
             {
-                Console.WriteLine("I do not understand that.");
+                pick.Invoke();
             }
-            else if (name.ToLower() == "help")
+            else if (string.IsNullOrEmpty(result))
             {
-                MainMethod.Help();
+                WriteLine("I do not understand that.");
             }
             else
             {
-                playerNameValid = true;
+                name = result;
             }
         }
         return name;
@@ -66,7 +72,7 @@ internal static class MainMethod
 
     public static List<string> InitInventory() => ["Pickle", "dirty penny"];
 
-    public static void DisplayInventory(List<string> inventory) => inventory.ForEach(x => Console.WriteLine($"- {x}"));
+    public static void DisplayInventory(List<string> inventory) => inventory.ForEach(x => WriteLine($"- {x}"));
 
     public static void GameOver()
     {
