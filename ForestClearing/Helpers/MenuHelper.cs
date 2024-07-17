@@ -12,8 +12,8 @@ public static class MenuHelper
             string? response = ReadLine();
             MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
             pick?.Invoke();
-
-            WriteLine("I do not understand that command.");
+            if(pick == null)
+                WriteLine("I do not understand that command.");
         }
     }
 
