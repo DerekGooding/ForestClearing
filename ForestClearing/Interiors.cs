@@ -254,13 +254,7 @@ internal static class Interiors
         }
     }
 
-    public static int SwampLogic(int swampAdd)
-    {
-        return swampAdd;
-    }
+    public static int SwampLogic(int swampAdd) => swampAdd;
 
-    public static int KillerFatigue(int Swampfatigue)
-    {
-        return Swampfatigue + 1;
-    }
+    public static int KillerFatigue(int SwampFatigue) => SwampFatigue + 1;
 }
