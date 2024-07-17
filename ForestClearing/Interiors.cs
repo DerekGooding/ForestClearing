@@ -1,4 +1,6 @@
-﻿namespace ForestClearing;
+﻿using ForestClearing.Model;
+
+namespace ForestClearing;
 
 internal static class Interiors
 {
@@ -38,51 +40,35 @@ internal static class Interiors
     internal static void HintusHut()
     {
         ClearBeep();
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine("You enter the hut and notice first how spacious it is on the inside.");
-        Console.WriteLine("there are decorative columns and statues all over the place. Standing");
-        Console.WriteLine("near a brazier is a man dressed in full imperial armor. He is preoccupied");
-        Console.WriteLine("with feeding the brazier and didn't notice you enter.");
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine();
+        WriteLine("*******************************************************************");
+        WriteLine("You enter the hut and notice first how spacious it is on the inside.");
+        WriteLine("there are decorative columns and statues all over the place. Standing");
+        WriteLine("near a brazier is a man dressed in full imperial armor. He is preoccupied");
+        WriteLine("with feeding the brazier and didn't notice you enter.");
+        WriteLine("*******************************************************************");
+        WriteLine();
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
-            {
-                Main.DisplayInventory();
-            }
-            else if (response.ToLower() == "help")
-            {
-                Main.Help();
-            }
-            else if (response.ToLower() == "exit" || response.ToLower() == "exit hut")
-            {
-                Map.CliffFace();
-            }
-            else if (response.ToLower() == "talk" || response.ToLower() == "talk to hintus" || response.ToLower() == "talk hintus")
-            {
-                Dialogue.Hintus();
-            }
-            else
-            {
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+        List<MenuOption> options =
+        [
+            new("inventory", Main.DisplayInventory),
+            new("help", Main.Help),
+        ];
+        options.AddRange(SameResult(["exit", "exit hut"], Map.CliffFace));
+        options.AddRange(SameResult(["talk", "talk to hintus", "talk hintus"], Dialogue.Hintus));
+
+        CallMenu(options);
     }
 
     internal static void Inn()
     {
         ClearBeep();
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine();
+        WriteLine("*******************************************************************");
+        WriteLine("");
+        WriteLine("");
+        WriteLine("");
+        WriteLine("");
+        WriteLine("*******************************************************************");
+        WriteLine();
 
         while (true)
         {
@@ -110,13 +96,13 @@ internal static class Interiors
     public static void SwampMaze(int swampCount = 0, int fatigue = 0)
     {
         ClearBeep();
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine("You push off on the canoe and head further east into the Swamp. Little");
-        Console.WriteLine("light gets through these swamps, and a fatigue comes over you the deeper");
-        Console.WriteLine("you get. The silence in the swamp is crushing, and after awhile you realize");
-        Console.WriteLine("you might be lost.");
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine();
+        WriteLine("*******************************************************************");
+        WriteLine("You push off on the canoe and head further east into the Swamp. Little");
+        WriteLine("light gets through these swamps, and a fatigue comes over you the deeper");
+        WriteLine("you get. The silence in the swamp is crushing, and after awhile you realize");
+        WriteLine("you might be lost.");
+        WriteLine("*******************************************************************");
+        WriteLine();
 
         while (true)
         {
