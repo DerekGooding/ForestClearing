@@ -1,5 +1,4 @@
 ﻿using ForestClearing.Model;
-using System.Xml.Serialization;
 
 namespace ForestClearing.Helpers;
 
@@ -17,6 +16,8 @@ public static class MenuHelper
             WriteLine("I do not understand that command.");
         }
     }
+
+    public static IEnumerable<MenuOption> DefaultOptions => [ new("inventory", Main.DisplayInventory), new("help", Main.Help), ];
 
     public static IEnumerable<MenuOption> SameResult(string[] keys, Action effect) => keys.Select(x => new MenuOption(x, effect));
 }

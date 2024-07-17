@@ -48,11 +48,8 @@ internal static class Interiors
         WriteLine("*******************************************************************");
         WriteLine();
 
-        List<MenuOption> options =
-        [
-            new("inventory", Main.DisplayInventory),
-            new("help", Main.Help),
-        ];
+        List<MenuOption> options = [];
+        options.AddRange(DefaultOptions);
         options.AddRange(SameResult(["exit", "exit hut"], Map.CliffFace));
         options.AddRange(SameResult(["talk", "talk to hintus", "talk hintus"], Dialogue.Hintus));
 
