@@ -6,7 +6,7 @@ internal static class Program
     {
         ForegroundColor = ConsoleColor.Green;
 
-        MainMethod.Intro();
+        ForestClearing.Main.Intro();
         //string? playerName = MainMethod.PlayerName();
 
         Map.Clearing();

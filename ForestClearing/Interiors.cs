@@ -2,7 +2,7 @@
 
 internal static class Interiors
 {
-    private static readonly List<string> inventory = MainMethod.InitInventory();
+    private static readonly List<string> inventory = Main.InitInventory();
 
     internal static void Template()
     {
@@ -21,11 +21,11 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
-                MainMethod.Help();
+                Main.Help();
             }
             else if (response.ToLower() == "exit")
             {
@@ -54,11 +54,11 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
-                MainMethod.Help();
+                Main.Help();
             }
             else if (response.ToLower() == "exit" || response.ToLower() == "exit hut")
             {
@@ -92,11 +92,11 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
-                MainMethod.Help();
+                Main.Help();
             }
             else if (response.ToLower() == "exit" || response.ToLower() == "exit inn")
             {
@@ -127,11 +127,11 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
-                MainMethod.Help();
+                Main.Help();
             }
             else if (response.ToLower() == "south")
             {
@@ -244,7 +244,7 @@ internal static class Interiors
                 Console.WriteLine("into the deep, never to surface.");
                 Console.WriteLine("*******************************************************************");
                 Console.WriteLine();
-                MainMethod.GameOver();
+                Main.GameOver();
                 break;
             }
             if (swampFinished)

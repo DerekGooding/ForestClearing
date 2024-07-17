@@ -4,7 +4,8 @@ namespace ForestClearing;
 
 internal static class Map
 {
-    private static readonly List<string> inventory = MainMethod.InitInventory();
+    private static readonly List<string> inventory = Main.InitInventory();
+
     private static string previousLocation = "";
 
     private static void Template()
@@ -31,7 +32,7 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
@@ -76,8 +77,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south", SouthWoods),
             new("north", NorthWoods),
             new("west", CliffFace),
@@ -103,8 +104,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south", WrongDirectionBeep),
             new("north", WrongDirectionBeep),
             new("west", Clearing),
@@ -146,8 +147,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("enter hut", Interiors.HintusHut),
             new("south", WrongDirectionBeep),
             new("north", WestWoods),
@@ -205,8 +206,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south", Clearing),
             new("north", Field),
             new("west", WestWoods),
@@ -227,7 +228,7 @@ internal static class Map
                 WriteLine("spill out of your body as you perish.");
                 WriteLine("*******************************************************************");
                 WriteLine();
-                MainMethod.GameOver();
+                Main.GameOver();
             }),
             new("inspect", () =>
             {
@@ -305,8 +306,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south", NorthWoods),
             new("north", Town),
             new("west", River),
@@ -365,8 +366,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south",Field),
             new("north", WrongDirectionBeep),
             new("west", WestTown),
@@ -407,8 +408,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south",Church),
             new("north", () => WriteLine("Behind the houses to the North are steep hills. They look impassible.")),
             new("west", Town),
@@ -435,8 +436,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south",() =>
             {
                 WriteLine("Your path to the graveyard is blocked by a tall iron fence that");
@@ -489,8 +490,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south",River),
             new("north", () =>
             {
@@ -527,11 +528,11 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
-                MainMethod.Help();
+                Main.Help();
             }
             else if (response.ToLower() == "south")
             {
@@ -587,8 +588,8 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => MainMethod.DisplayInventory(inventory)),
-            new("help", MainMethod.Help),
+            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("help", Main.Help),
             new("south",CliffFace),
             new("north", WrongDirectionBeep),
             new("west", WrongDirectionBeep),
@@ -620,11 +621,11 @@ internal static class Map
 
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
-                MainMethod.Help();
+                Main.Help();
             }
             else if (response.ToLower() == "south")
             {
@@ -675,11 +676,11 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
-                MainMethod.Help();
+                Main.Help();
             }
             else if (response.ToLower() == "south")
             {
@@ -707,7 +708,7 @@ internal static class Map
                 Console.WriteLine("everything goes black.");
                 Console.WriteLine("*******************************************************************");
                 Console.WriteLine();
-                MainMethod.GameOver();
+                Main.GameOver();
             }
             else if (response.ToLower() == "use pickle")
             {
@@ -727,7 +728,7 @@ internal static class Map
                 Console.WriteLine("What it the world made you think you could pull that off?");
                 Console.WriteLine("*******************************************************************");
                 Console.WriteLine();
-                MainMethod.GameOver();
+                Main.GameOver();
             }
             else if (response.ToLower() == "west")
             {
@@ -776,7 +777,7 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                MainMethod.DisplayInventory(inventory);
+                Main.DisplayInventory(inventory);
             }
             else if (response.ToLower() == "help")
             {
