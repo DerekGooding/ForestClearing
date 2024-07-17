@@ -1,6 +1,6 @@
 ﻿namespace ForestClearing;
 
-internal class Dialogue
+internal static class Dialogue
 {
     private static bool metHintus = false;
     private static bool knowsBird = false;

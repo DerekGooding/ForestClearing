@@ -1,6 +1,6 @@
 ﻿namespace ForestClearing;
 
-internal class Map
+internal static class Map
 {
     static List<string> inventory = MainMethod.InitInventory();
     private static string previousLocation = "";

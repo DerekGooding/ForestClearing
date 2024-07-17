@@ -1,6 +1,6 @@
 ﻿namespace ForestClearing;
 
-internal class MainMethod
+internal static class MainMethod
 {
     public static void Intro()
     {

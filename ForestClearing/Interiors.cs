@@ -1,6 +1,6 @@
 ﻿namespace ForestClearing;
 
-internal class Interiors
+internal static class Interiors
 {
     static List<string> inventory = MainMethod.InitInventory();
     internal static void Template()
