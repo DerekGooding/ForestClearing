@@ -64,21 +64,9 @@ internal static class MainMethod
         return name;
     }
 
-    public static List<string> InitInventory()
-    {
-        List<string> inventory = new List<string>();
-        inventory.Add("Pickle");
-        inventory.Add("dirty penny");
-        return inventory;
-    }
+    public static List<string> InitInventory() => ["Pickle", "dirty penny"];
 
-    public static void DisplayInventory(List<string> inventory)
-    {
-        foreach (string item in inventory)
-        {
-            Console.WriteLine($"- {item}");
-        }
-    }
+    public static void DisplayInventory(List<string> inventory) => inventory.ForEach(x => Console.WriteLine($"- {x}"));
 
     public static void GameOver()
     {
