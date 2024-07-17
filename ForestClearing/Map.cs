@@ -381,64 +381,41 @@ internal static class Map
         ClearBeep();
         if (previousLocation == "Town")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You start to walk East. The road bends south slightly and the town");
-            Console.WriteLine("begins to thin out into a smaller field. The homes on this side of");
-            Console.WriteLine("town are much larger, and instead of farms these homes are covered in");
-            Console.WriteLine("beautiful gardens and stone sculptures. Some of the homes are made of");
-            Console.WriteLine("polished stone. There is a small road south that leads to a massive");
-            Console.WriteLine("church.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You start to walk East. The road bends south slightly and the town");
+            WriteLine("begins to thin out into a smaller field. The homes on this side of");
+            WriteLine("town are much larger, and instead of farms these homes are covered in");
+            WriteLine("beautiful gardens and stone sculptures. Some of the homes are made of");
+            WriteLine("polished stone. There is a small road south that leads to a massive");
+            WriteLine("church.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
         else if (previousLocation == "Church")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You leave the church grounds and move North. The homes on this side of");
-            Console.WriteLine("town are much larger, and instead of farms these homes are covered in");
-            Console.WriteLine("beautiful gardens and stone sculptures. Some of the homes are made of");
-            Console.WriteLine("polished stone. There is a small road south that leads to a massive");
-            Console.WriteLine("church.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You leave the church grounds and move North. The homes on this side of");
+            WriteLine("town are much larger, and instead of farms these homes are covered in");
+            WriteLine("beautiful gardens and stone sculptures. Some of the homes are made of");
+            WriteLine("polished stone. There is a small road south that leads to a massive");
+            WriteLine("church.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
 
         previousLocation = "EastTown";
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
-            {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Map.Church();
-            }
-            else if (response.ToLower() == "north")
-            {
-                Console.WriteLine("Behind the houses to the North are steep hills. They look impassible.");
-            }
-            else if (response.ToLower() == "west")
-            {
-                Map.Town();
-            }
-            else if (response.ToLower() == "east")
-            {
-                Console.WriteLine("There is nothing east but plains.");
-            }
-            else
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south",Church),
+            new("north", () => WriteLine("Behind the houses to the North are steep hills. They look impassible.")),
+            new("west", Town),
+            new("east", () => WriteLine("There is nothing east but plains.")),
+        ];
+
+        CallMenu(options);
     }
 
     public static void Church()
@@ -446,62 +423,42 @@ internal static class Map
         ClearBeep();
         if (previousLocation == "EastTown")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You follow the path south and reach the front of a large church. The");
-            Console.WriteLine("church appears to be abandoned. To the south is a large graveyard,");
-            Console.WriteLine("which is blocked and bordered by a large iron fence.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You follow the path south and reach the front of a large church. The");
+            WriteLine("church appears to be abandoned. To the south is a large graveyard,");
+            WriteLine("which is blocked and bordered by a large iron fence.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
 
         previousLocation = "Church";
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south",() =>
             {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
+                WriteLine("Your path to the graveyard is blocked by a tall iron fence that");
+                WriteLine("wraps around the entire graveyard.");
+            }),
+            new("north", EastTown),
+            new("west", () => WriteLine("There is nothing that way for you.")),
+            new("east", () => WriteLine("There is nothing that way for you.")),
+            new("inspect church", () =>
             {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Console.WriteLine("Your path to the graveyard is blocked by a tall iron fence that");
-                Console.WriteLine("wraps around the entire graveyard.");
-            }
-            else if (response.ToLower() == "north")
-            {
-                Map.EastTown();
-            }
-            else if (response.ToLower() == "west")
-            {
-                Console.WriteLine("There is nothing that way for you.");
-            }
-            else if (response.ToLower() == "east")
-            {
-                Console.WriteLine("There is nothing that way for you.");
-            }
-            else if (response.ToLower() == "inspect church")
-            {
-                Console.WriteLine("*******************************************************************");
-                Console.WriteLine("The church appears to be in disrepair. A large tower sits to");
-                Console.WriteLine("the west side of the church. The massive wood door in front");
-                Console.WriteLine("seems to be the only part of the church not left to the elements");
-                Console.WriteLine("Intricate carvings of nature cover the door, which is bordered");
-                Console.WriteLine("with gold inlay.");
-                Console.WriteLine("*******************************************************************");
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+                WriteLine("*******************************************************************");
+                WriteLine("The church appears to be in disrepair. A large tower sits to");
+                WriteLine("the west side of the church. The massive wood door in front");
+                WriteLine("seems to be the only part of the church not left to the elements");
+                WriteLine("Intricate carvings of nature cover the door, which is bordered");
+                WriteLine("with gold inlay.");
+                WriteLine("*******************************************************************");
+                WriteLine();
+            }),
+        ];
+
+        CallMenu(options);
     }
 
     public static void WestTown()
@@ -509,66 +466,43 @@ internal static class Map
         ClearBeep();
         if (previousLocation == "Town")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You make your way East. This part of town is quieter and sits next to");
-            Console.WriteLine("a river. At the end of the street is an Inn. You can see people drinking");
-            Console.WriteLine("under an awning in front of the Inn, next to it on the river bank you see");
-            Console.WriteLine("a small dock with a canoe.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You make your way East. This part of town is quieter and sits next to");
+            WriteLine("a river. At the end of the street is an Inn. You can see people drinking");
+            WriteLine("under an awning in front of the Inn, next to it on the river bank you see");
+            WriteLine("a small dock with a canoe.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
         else if (previousLocation == "River")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You make your way North. This part of the town is quieter and sits");
-            Console.WriteLine(" next to the river. At the end of the street is an Inn. You can see");
-            Console.WriteLine("people drinking under an awning in front of the Inn, next to it on the");
-            Console.WriteLine("river bank you see a small dock with a canoe.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You make your way North. This part of the town is quieter and sits");
+            WriteLine(" next to the river. At the end of the street is an Inn. You can see");
+            WriteLine("people drinking under an awning in front of the Inn, next to it on the");
+            WriteLine("river bank you see a small dock with a canoe.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
 
         previousLocation = "WestTown";
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south",River),
+            new("north", () =>
             {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Map.River();
-            }
-            else if (response.ToLower() == "north")
-            {
-                Console.WriteLine("There are some smaller homes and buildings to the north");
-                Console.WriteLine("but there doesn't seem to be much going on there");
-            }
-            else if (response.ToLower() == "west")
-            {
-                Console.WriteLine("West is the Inn, which appears to be open.");
-            }
-            else if (response.ToLower() == "east")
-            {
-                Map.Town();
-            }
-            else if (response.ToLower() == "enter inn")
-            {
-                Interiors.Inn();
-            }
-            else
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+                WriteLine("There are some smaller homes and buildings to the north");
+                WriteLine("but there doesn't seem to be much going on there");
+            }),
+            new("west", () => WriteLine("West is the Inn, which appears to be open.")),
+            new("east", Town),
+            new("enter inn", Interiors.Inn),
+        ];
+
+        CallMenu(options);
     }
 
     public static void River()
@@ -651,37 +585,18 @@ internal static class Map
         }
         previousLocation = "WestWoods";
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
-            {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Map.CliffFace();
-            }
-            else if (response.ToLower() == "north" || (response.ToLower() == "west"))
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("You cannot go that way.");
-            }
-            else if (response.ToLower() == "east")
-            {
-                Map.NorthWoods();
-            }
-            else
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south",CliffFace),
+            new("north", WrongDirectionBeep),
+            new("west", WrongDirectionBeep),
+            new("east", NorthWoods),
+            new("enter inn", Interiors.Inn),
+        ];
+
+        CallMenu(options);
     }
 
     public static void SouthWoods()
