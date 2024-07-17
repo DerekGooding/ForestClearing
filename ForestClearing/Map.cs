@@ -4,7 +4,7 @@ namespace ForestClearing;
 
 internal static class Map
 {
-    private static List<string> inventory = MainMethod.InitInventory();
+    private static readonly List<string> inventory = MainMethod.InitInventory();
     private static string previousLocation = "";
 
     private static void Template()
@@ -59,18 +59,18 @@ internal static class Map
     public static void Clearing()
     {
         ClearBeep();
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine("You take a quick look around the clearing. There isn't much going ");
-        Console.WriteLine("on, a small creek runs east from west. The sky is cloudless. To the");
-        Console.WriteLine("North you see a path through the trees. You look West and see that ");
-        Console.WriteLine("the trees sit near a cliff face, with a small trail leading to the ");
-        Console.WriteLine("cliff. The creek heading east seems to follow a very small break in");
-        Console.WriteLine("the trees, but it looks like a tight fit. As you turn around to see");
-        Console.WriteLine("south of you, a large crash is heard. There is a large cloud of dust");
-        Console.WriteLine("coming from somewhere deep in the woods. You can see an overgrown but");
-        Console.WriteLine("but accessible trail...");
-        Console.WriteLine();
-        Console.WriteLine("*******************************************************************");
+        WriteLine("*******************************************************************");
+        WriteLine("You take a quick look around the clearing. There isn't much going ");
+        WriteLine("on, a small creek runs east from west. The sky is cloudless. To the");
+        WriteLine("North you see a path through the trees. You look West and see that ");
+        WriteLine("the trees sit near a cliff face, with a small trail leading to the ");
+        WriteLine("cliff. The creek heading east seems to follow a very small break in");
+        WriteLine("the trees, but it looks like a tight fit. As you turn around to see");
+        WriteLine("south of you, a large crash is heard. There is a large cloud of dust");
+        WriteLine("coming from somewhere deep in the woods. You can see an overgrown but");
+        WriteLine("but accessible trail...");
+        WriteLine();
+        WriteLine("*******************************************************************");
 
         previousLocation = "Clearing";
 
@@ -103,54 +103,40 @@ internal static class Map
     public static void EndlessSwamp()
     {
         ClearBeep();
-        Console.WriteLine("*******************************************************************");
-        Console.WriteLine("As you follow the small creek it quickly connects to a larger stream.");
-        Console.WriteLine("At the end of the stream is a vast swamp. Deep into the swamp is so");
-        Console.WriteLine("overgrown with hanging trees and mangroves that light has a hard time");
-        Console.WriteLine("penetrating it. Standing at the bank of the swamp you look around and");
-        Console.WriteLine("see there is no where else to go but further east into the actual swamp");
-        Console.WriteLine("or back west the way you came.");
-        Console.WriteLine("*******************************************************************");
+        WriteLine("*******************************************************************");
+        WriteLine("As you follow the small creek it quickly connects to a larger stream.");
+        WriteLine("At the end of the stream is a vast swamp. Deep into the swamp is so");
+        WriteLine("overgrown with hanging trees and mangroves that light has a hard time");
+        WriteLine("penetrating it. Standing at the bank of the swamp you look around and");
+        WriteLine("see there is no where else to go but further east into the actual swamp");
+        WriteLine("or back west the way you came.");
+        WriteLine("*******************************************************************");
 
         previousLocation = "EndlessSwamp";
 
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south", WrongDirectionBeep),
+            new("north", WrongDirectionBeep),
+            new("west", Clearing),
+            new("east", () => Interiors.SwampMaze()),
+            new("use canoe", () => Interiors.SwampMaze()),
+        ];
+
         while (true)
         {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
+            Write("Command: ");
+            string? response = ReadLine();
+            MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
+            if (pick != null)
             {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("You cannot go that way.");
-            }
-            else if (response.ToLower() == "north")
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("You cannot go that way.");
-            }
-            else if (response.ToLower() == "west")
-            {
-                Map.Clearing();
-            }
-            else if (response.ToLower() == "east")
-            {
-                Interiors.SwampMaze();
-            }
-            else if (response.ToLower() == "use canoe")
-            {
-                Interiors.SwampMaze();
+                pick.Invoke();
             }
             else
             {
-                Console.WriteLine("I do not understand that command.");
+                WriteLine("I do not understand that command.");
             }
         }
     }
