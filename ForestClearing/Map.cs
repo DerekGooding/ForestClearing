@@ -172,129 +172,103 @@ internal static class Map
         ClearBeep();
         if (previousLocation == "Clearing")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You follow the path from the clearing as it takes you deeper into");
-            Console.WriteLine("the woods. You notice that this area is much calmer and peaceful");
-            Console.WriteLine("than the place you came from. You can hear birds chattering in the");
-            Console.WriteLine("trees. The trail opens into a small glade, with a giant sprawling");
-            Console.WriteLine("willow next to a small pool. The water at the pool is cool and clear.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You follow the path from the clearing as it takes you deeper into");
+            WriteLine("the woods. You notice that this area is much calmer and peaceful");
+            WriteLine("than the place you came from. You can hear birds chattering in the");
+            WriteLine("trees. The trail opens into a small glade, with a giant sprawling");
+            WriteLine("willow next to a small pool. The water at the pool is cool and clear.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
         else if (previousLocation == "WestWoods")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You follow the path from the woods east into the forest the light from");
-            Console.WriteLine("above trees dances on the forest floor. The trail opens into a small");
-            Console.WriteLine("glade, with a giant sprawling willow next to a small pool. The water");
-            Console.WriteLine("at the pool is cool and clear.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You follow the path from the woods east into the forest the light from");
+            WriteLine("above trees dances on the forest floor. The trail opens into a small");
+            WriteLine("glade, with a giant sprawling willow next to a small pool. The water");
+            WriteLine("at the pool is cool and clear.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
         else
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You follow the path from the plains south back into the forest. The");
-            Console.WriteLine("trail opens into a small glade, with a giant sprawling willow next to");
-            Console.WriteLine("a small pool. The water at the pool is cool and clear.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You follow the path from the plains south back into the forest. The");
+            WriteLine("trail opens into a small glade, with a giant sprawling willow next to");
+            WriteLine("a small pool. The water at the pool is cool and clear.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
 
         previousLocation = "NorthWoods";
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south", Clearing),
+            new("north", Field),
+            new("west", WestWoods),
+            new("east", WrongDirectionBeep),
+            new("drink water", () =>
             {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Map.Clearing();
-            }
-            else if (response.ToLower() == "north")
-            {
-                Map.Field();
-            }
-            else if (response.ToLower() == "west")
-            {
-                Map.WestWoods();
-            }
-            else if (response.ToLower() == "east")
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("You cannot go that way.");
-            }
-            else if (response.ToLower() == "drink water")
-            {
-                Console.Clear();
-                Console.WriteLine("*******************************************************************");
-                Console.WriteLine("You drop down next to the pool and stick your face in it to take a");
-                Console.WriteLine("large drink. The water is cool and refreshing. A small bird above you");
-                Console.WriteLine("in the willow is jumping around frantically. Its sing-song chirping");
-                Console.WriteLine("sounds suspiciously like English at times.");
-                Console.WriteLine();
-                Console.WriteLine("Suddenly you feel a deep burning within your stomach. And a rising");
-                Console.WriteLine("feeling of doom strikes you. Your body feels like its burning. A sudden,");
-                Console.WriteLine("delirious fever takes over you and you collapse. You start to shake and");
-                Console.WriteLine("writhe on the ground before fading to black. You feel a burning liquid");
-                Console.WriteLine("spill out of your body as you perish.");
-                Console.WriteLine("*******************************************************************");
-                Console.WriteLine();
+                Clear();
+                WriteLine("*******************************************************************");
+                WriteLine("You drop down next to the pool and stick your face in it to take a");
+                WriteLine("large drink. The water is cool and refreshing. A small bird above you");
+                WriteLine("in the willow is jumping around frantically. Its sing-song chirping");
+                WriteLine("sounds suspiciously like English at times.");
+                WriteLine();
+                WriteLine("Suddenly you feel a deep burning within your stomach. And a rising");
+                WriteLine("feeling of doom strikes you. Your body feels like its burning. A sudden,");
+                WriteLine("delirious fever takes over you and you collapse. You start to shake and");
+                WriteLine("writhe on the ground before fading to black. You feel a burning liquid");
+                WriteLine("spill out of your body as you perish.");
+                WriteLine("*******************************************************************");
+                WriteLine();
                 MainMethod.GameOver();
-            }
-            else if (response.ToLower() == "inspect")
+            }),
+            new("inspect", () =>
             {
-                Console.Beep(800, 40);
-                Console.WriteLine("*******************************************************************");
-                Console.WriteLine("You see a large willow with hanging branches. It sits next to a small");
-                Console.WriteLine("pool. To the north the path winds around the tree into more woods.");
-                Console.WriteLine("To the west is another forest path. There is nothing to the east.");
-                Console.WriteLine("*******************************************************************");
-            }
-            else if (response.ToLower() == "inspect tree")
+                Beep(800, 40);
+                WriteLine("*******************************************************************");
+                WriteLine("You see a large willow with hanging branches. It sits next to a small");
+                WriteLine("pool. To the north the path winds around the tree into more woods.");
+                WriteLine("To the west is another forest path. There is nothing to the east.");
+                WriteLine("*******************************************************************");
+            }),
+            new("inspect tree", () =>
             {
-                Console.Beep(800, 40);
-                Console.WriteLine("*******************************************************************");
-                Console.WriteLine("You give the tree a closer look. Moss grows along the base and trunk");
-                Console.WriteLine("of it which is as wide as three or four trees. It looks old and ancient");
-                Console.WriteLine("The branches dip so low they kiss the pool occasionally, sending soft");
-                Console.WriteLine("ripples on its surface. A small yellow bird lands on a branch and");
-                Console.WriteLine("looks at you curiously. It sings a quiet sound that strangely sounds");
-                Console.WriteLine("like words.");
-                Console.WriteLine("*******************************************************************");
-            }
-            else if (response.ToLower() == "inspect pool")
+                Beep(800, 40);
+                WriteLine("*******************************************************************");
+                WriteLine("You give the tree a closer look. Moss grows along the base and trunk");
+                WriteLine("of it which is as wide as three or four trees. It looks old and ancient");
+                WriteLine("The branches dip so low they kiss the pool occasionally, sending soft");
+                WriteLine("ripples on its surface. A small yellow bird lands on a branch and");
+                WriteLine("looks at you curiously. It sings a quiet sound that strangely sounds");
+                WriteLine("like words.");
+                WriteLine("*******************************************************************");
+            }),
+            new("inspect pool", () =>
             {
-                Console.Beep(1100, 40);
-                Console.Beep(1000, 100);
-                Console.Beep(1100, 40);
-                Console.Beep(900, 100);
-                Console.Beep(1200, 40);
-                Console.WriteLine("*******************************************************************");
-                Console.WriteLine("You walk closer to the base of the tree to look into the pool. Around ");
-                Console.WriteLine("the pool small flowers and mushrooms sit. They look pristine and untouched.");
-                Console.WriteLine("You gaze into the pool, it is so clear that you can see straight to the");
-                Console.WriteLine("bottom. There is a small gold coin sitting among the pebbles and rocks.");
-                Console.WriteLine("*******************************************************************");
-            }
-            else if (response.ToLower() == "talk bird" || (response.ToLower() == "talk to bird"))
-            {
-                Dialogue.SmallBird();
-            }
-            else
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+                Beep(1100, 40);
+                Beep(1000, 100);
+                Beep(1100, 40);
+                Beep(900, 100);
+                Beep(1200, 40);
+                WriteLine("*******************************************************************");
+                WriteLine("You walk closer to the base of the tree to look into the pool. Around ");
+                WriteLine("the pool small flowers and mushrooms sit. They look pristine and untouched.");
+                WriteLine("You gaze into the pool, it is so clear that you can see straight to the");
+                WriteLine("bottom. There is a small gold coin sitting among the pebbles and rocks.");
+                WriteLine("*******************************************************************");
+            }),
+            new("talk bird", Dialogue.SmallBird),
+            new("talk to bird", Dialogue.SmallBird),
+        ];
+
+        CallMenu(options);
     }
 
     public static void Field()
