@@ -84,15 +84,7 @@ internal static class Map
             new("east", EndlessSwamp),
         ];
 
-        while (true)
-        {
-            Write("Command: ");
-            string? response = ReadLine();
-            MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
-            pick?.Invoke();
-
-            WriteLine("I do not understand that command.");
-        }
+        CallMenu(options);
     }
 
     public static void EndlessSwamp()
@@ -120,15 +112,7 @@ internal static class Map
             new("use canoe", () => Interiors.SwampMaze()),
         ];
 
-        while (true)
-        {
-            Write("Command: ");
-            string? response = ReadLine();
-            MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
-            pick?.Invoke();
-
-            WriteLine("I do not understand that command.");
-        }
+        CallMenu(options);
     }
 
     public static void CliffFace()
@@ -180,15 +164,7 @@ internal static class Map
             }),
         ];
 
-        while (true)
-        {
-            Write("Command: ");
-            string? response = ReadLine();
-            MenuOption? pick = options.Find(x => x.Key.Equals(response, StringComparison.OrdinalIgnoreCase));
-            pick?.Invoke();
-
-            WriteLine("I do not understand that command.");
-        }
+        CallMenu(options);
     }
 
     public static void NorthWoods()
