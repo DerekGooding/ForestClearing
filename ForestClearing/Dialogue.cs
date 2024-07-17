@@ -18,8 +18,7 @@ internal static class Dialogue
         bool dialogDone = false;
         bool knowsRathbone = false;
         bool romanCitizen = false;
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (!metHintus)
         {
             Console.WriteLine("*******************************************************************");
@@ -125,8 +124,7 @@ internal static class Dialogue
 
         if (!knowsBird)
         {
-            Console.Beep(800, 40);
-            Console.Clear();
+            ClearBeep();
             Console.WriteLine("*******************************************************************");
             Console.WriteLine("You greet the bird softly and stick out your finger. The bird bites");
             Console.WriteLine("it and begins to speak.");
@@ -139,8 +137,7 @@ internal static class Dialogue
         }
         else
         {
-            Console.Beep(800, 40);
-            Console.Clear();
+            ClearBeep();
             Console.WriteLine("*******************************************************************");
             Console.WriteLine("The bird sits there and puffs out its chest. It waits patiently on ");
             Console.WriteLine("a branch.");

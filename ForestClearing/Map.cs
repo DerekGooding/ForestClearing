@@ -56,8 +56,7 @@ internal static class Map
 
     public static void Clearing()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("You take a quick look around the clearing. There isn't much going ");
         Console.WriteLine("on, a small creek runs east from west. The sky is cloudless. To the");
@@ -110,8 +109,7 @@ internal static class Map
 
     public static void EndlessSwamp()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("As you follow the small creek it quickly connects to a larger stream.");
         Console.WriteLine("At the end of the stream is a vast swamp. Deep into the swamp is so");
@@ -168,8 +166,7 @@ internal static class Map
     {
         if (previousLocation == "Clearing")
         {
-            Console.Beep(800, 40);
-            Console.Clear();
+            ClearBeep();
             Console.WriteLine("*******************************************************************");
             Console.WriteLine("You follow the trail towards the cliff. The elevation is surprisingly");
             Console.WriteLine("smooth as you stroll towards an open outcropping. At the top of the");
@@ -181,8 +178,7 @@ internal static class Map
         }
         else if (previousLocation == "WestWoods")
         {
-            Console.Beep(800, 40);
-            Console.Clear();
+            ClearBeep();
             Console.WriteLine("*******************************************************************");
             Console.WriteLine("You come around the cliff face from the west woods, and the terrain");
             Console.WriteLine("gradually opens up into an outcropping. At the top, you see a small");
@@ -250,8 +246,7 @@ internal static class Map
 
     public static void NorthWoods()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "Clearing")
         {
             Console.WriteLine("*******************************************************************");
@@ -381,8 +376,7 @@ internal static class Map
 
     public static void Field()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "NorthWoods")
         {
             Console.WriteLine("*******************************************************************");
@@ -450,8 +444,7 @@ internal static class Map
 
     public static void Town()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "Field")
         {
             Console.WriteLine("*******************************************************************");
@@ -533,8 +526,7 @@ internal static class Map
 
     public static void EastTown()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "Town")
         {
             Console.WriteLine("*******************************************************************");
@@ -599,8 +591,7 @@ internal static class Map
 
     public static void Church()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "EastTown")
         {
             Console.WriteLine("*******************************************************************");
@@ -663,8 +654,7 @@ internal static class Map
 
     public static void WestTown()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "Town")
         {
             Console.WriteLine("*******************************************************************");
@@ -731,8 +721,7 @@ internal static class Map
 
     public static void River()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("You take the road west towards the river. As you get closer the road");
         Console.WriteLine("starts to narrow. This portion of the road is much older and the stones");
@@ -787,8 +776,7 @@ internal static class Map
     {
         if (previousLocation == "CliffFace")
         {
-            Console.Beep(800, 40);
-            Console.Clear();
+            ClearBeep();
             Console.WriteLine("*******************************************************************");
             Console.WriteLine("You follow the path north that goes down into the woods. The path is");
             Console.WriteLine("steep and you walk slow and steady until you reach an opening into the");
@@ -800,8 +788,7 @@ internal static class Map
         }
         else if (previousLocation == "NorthWoods")
         {
-            Console.Beep(800, 40);
-            Console.Clear();
+            ClearBeep();
             Console.WriteLine("*******************************************************************");
             Console.WriteLine("You take the path west from the small glade. The path seems well-");
             Console.WriteLine("maintained and you can hear a creek bubbling up ahead. You enter a");
@@ -847,8 +834,7 @@ internal static class Map
 
     public static void SouthWoods()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("******************************************************************");
         Console.WriteLine("You make your way south through the overgrown trail. The deeper you");
         Console.WriteLine("go the tighter the trail gets, and branches start to snag at you.");
@@ -900,8 +886,7 @@ internal static class Map
 
     public static void SouthSouthWoods()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("As you continue along the path and into the open patch you catch a");
         Console.WriteLine("proper look at the thing shuffling around, and what you realize was");
@@ -997,8 +982,7 @@ internal static class Map
 
     internal static void SwampIsland()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         if (previousLocation == "EndlessSwamp")
         {
             Console.Beep(1100, 40);

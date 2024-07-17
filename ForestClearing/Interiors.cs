@@ -6,8 +6,7 @@ internal static class Interiors
 
     internal static void Template()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("");
         Console.WriteLine("");
@@ -40,8 +39,7 @@ internal static class Interiors
 
     internal static void HintusHut()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("You enter the hut and notice first how spacious it is on the inside.");
         Console.WriteLine("there are decorative columns and statues all over the place. Standing");
@@ -79,8 +77,7 @@ internal static class Interiors
 
     internal static void Inn()
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("");
         Console.WriteLine("");
@@ -114,8 +111,7 @@ internal static class Interiors
 
     public static void SwampMaze(int swampCount = 0, int fatigue = 0)
     {
-        Console.Beep(800, 40);
-        Console.Clear();
+        ClearBeep();
         Console.WriteLine("*******************************************************************");
         Console.WriteLine("You push off on the canoe and head further east into the Swamp. Little");
         Console.WriteLine("light gets through these swamps, and a fatigue comes over you the deeper");
@@ -146,8 +142,7 @@ internal static class Interiors
                 }
                 else
                 {
-                    Console.Beep(800, 40);
-                    Console.Clear();
+                    ClearBeep();
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine("You move South and are surrounded by swamp");
                     Console.WriteLine("*******************************************************************");
@@ -159,8 +154,7 @@ internal static class Interiors
             {
                 if (swampCount == 0)
                 {
-                    Console.Beep(800, 40);
-                    Console.Clear();
+                    ClearBeep();
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine("You move North and are surrounded by swamp");
                     Console.WriteLine("*******************************************************************");
@@ -169,8 +163,7 @@ internal static class Interiors
                 }
                 else
                 {
-                    Console.Beep(800, 40);
-                    Console.Clear();
+                    ClearBeep();
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine("You move North and are surrounded by swamp");
                     Console.WriteLine("*******************************************************************");
@@ -182,8 +175,7 @@ internal static class Interiors
             {
                 if (swampCount == 1)
                 {
-                    Console.Beep(800, 40);
-                    Console.Clear();
+                    ClearBeep();
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine("You move West and are surrounded by swamp");
                     Console.WriteLine("*******************************************************************");
@@ -192,8 +184,7 @@ internal static class Interiors
                 }
                 else if (swampCount == 2)
                 {
-                    Console.Beep(800, 40);
-                    Console.Clear();
+                    ClearBeep();
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine("You move West and are surrounded by swamp");
                     Console.WriteLine("*******************************************************************");
@@ -202,8 +193,7 @@ internal static class Interiors
                 }
                 else
                 {
-                    Console.Beep(800, 40);
-                    Console.Clear();
+                    ClearBeep();
                     Console.WriteLine("*******************************************************************");
                     Console.WriteLine("You move West and are surrounded by swamp");
                     Console.WriteLine("*******************************************************************");
@@ -213,8 +203,7 @@ internal static class Interiors
             }
             else if (response.ToLower() == "east")
             {
-                Console.Beep(800, 40);
-                Console.Clear();
+                ClearBeep();
                 Console.WriteLine("*******************************************************************");
                 Console.WriteLine("You move East and are surrounded by swamp");
                 Console.WriteLine("*******************************************************************");
