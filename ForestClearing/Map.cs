@@ -276,67 +276,44 @@ internal static class Map
         ClearBeep();
         if (previousLocation == "NorthWoods")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You make your way around the tree and continue North. As you walk");
-            Console.WriteLine("along the forest path the trees start to thin and you can feel the sun");
-            Console.WriteLine("on your face. The trees finally break completely and you walk into a");
-            Console.WriteLine("large plain. The plain is scattered with small farms and solitary trees.");
-            Console.WriteLine("The path connects to a cobblestone road. To the North in the distance");
-            Console.WriteLine("you see a small town, surrounded by more farms. To the east you see a");
-            Console.WriteLine("graveyard and a strange man guarding the road. The road winds west");
-            Console.WriteLine("down to the bank of a large river that flows north through the town.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You make your way around the tree and continue North. As you walk");
+            WriteLine("along the forest path the trees start to thin and you can feel the sun");
+            WriteLine("on your face. The trees finally break completely and you walk into a");
+            WriteLine("large plain. The plain is scattered with small farms and solitary trees.");
+            WriteLine("The path connects to a cobblestone road. To the North in the distance");
+            WriteLine("you see a small town, surrounded by more farms. To the east you see a");
+            WriteLine("graveyard and a strange man guarding the road. The road winds west");
+            WriteLine("down to the bank of a large river that flows north through the town.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
         else if (previousLocation == "River")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You leave the river and head east. The road widens as you come closer");
-            Console.WriteLine("to a cross roads sitting in a large plain. The plain is scattered with");
-            Console.WriteLine("with small farms and solitary trees.The path connects to a cobblestone");
-            Console.WriteLine("road. To the North in the distance you see a small town, surrounded by");
-            Console.WriteLine("more farms. To the east you see a graveyard and a strange man guarding");
-            Console.WriteLine("the road. The road winds west down to the bank of a large river that");
-            Console.WriteLine("flows north through the town.");
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You leave the river and head east. The road widens as you come closer");
+            WriteLine("to a cross roads sitting in a large plain. The plain is scattered with");
+            WriteLine("with small farms and solitary trees.The path connects to a cobblestone");
+            WriteLine("road. To the North in the distance you see a small town, surrounded by");
+            WriteLine("more farms. To the east you see a graveyard and a strange man guarding");
+            WriteLine("the road. The road winds west down to the bank of a large river that");
+            WriteLine("flows north through the town.");
+            WriteLine("*******************************************************************");
+            WriteLine();
         }
         previousLocation = "Field";
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
-            {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Map.NorthWoods();
-            }
-            else if (response.ToLower() == "north")
-            {
-                Map.Town();
-            }
-            else if (response.ToLower() == "west")
-            {
-                Map.River();
-            }
-            else if (response.ToLower() == "east")
-            {
-                //Graveyard event
-            }
-            else
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south", NorthWoods),
+            new("north", Town),
+            new("west", River),
+            new("east", WrongDirectionBeep), //graveyard event
+        ];
+
+        CallMenu(options);
     }
 
     public static void Town()
@@ -344,81 +321,59 @@ internal static class Map
         ClearBeep();
         if (previousLocation == "Field")
         {
-            Console.WriteLine("*******************************************************************");
-            Console.WriteLine("You take the road North. The road is attached to small hamlets and");
-            Console.WriteLine("cottages that sit on small farms. Most homes have small or gnarled");
-            Console.WriteLine("trees attached to them. You pass fields of barley and other grains.");
-            Console.WriteLine();
-            Console.WriteLine("You reach the town and notice there is no gate or major defenses.");
-            Console.WriteLine("Townspeople walk lazily about, there doesn't seem to be much urgency");
-            Console.WriteLine("in anyone. The road goes through the town and you arrive at a courtyard");
-            Console.WriteLine("The north side of the courtyard is lined with tall narrow buildings and");
-            Console.WriteLine("and a small street that connects to the main road that goes east or");
-            Console.WriteLine("west further into different parts of the town.");
-            Console.WriteLine("******************************************************************");
-            Console.WriteLine();
+            WriteLine("*******************************************************************");
+            WriteLine("You take the road North. The road is attached to small hamlets and");
+            WriteLine("cottages that sit on small farms. Most homes have small or gnarled");
+            WriteLine("trees attached to them. You pass fields of barley and other grains.");
+            WriteLine();
+            WriteLine("You reach the town and notice there is no gate or major defenses.");
+            WriteLine("Townspeople walk lazily about, there doesn't seem to be much urgency");
+            WriteLine("in anyone. The road goes through the town and you arrive at a courtyard");
+            WriteLine("The north side of the courtyard is lined with tall narrow buildings and");
+            WriteLine("and a small street that connects to the main road that goes east or");
+            WriteLine("west further into different parts of the town.");
+            WriteLine("******************************************************************");
+            WriteLine();
         }
         else if (previousLocation == "WestTown")
         {
-            Console.WriteLine("******************************************************************");
-            Console.WriteLine("You make your way to the center of town.");
-            Console.WriteLine();
-            Console.WriteLine("Townspeople walk lazily about, there doesn't seem to be much urgency");
-            Console.WriteLine("in anyone. The road goes through the town and you arrive at a courtyard");
-            Console.WriteLine("The north side of the courtyard is lined with tall narrow buildings and");
-            Console.WriteLine("and a small street that connects to the main road that goes east or");
-            Console.WriteLine("west further into different parts of the town.");
-            Console.WriteLine("******************************************************************");
-            Console.WriteLine();
+            WriteLine("******************************************************************");
+            WriteLine("You make your way to the center of town.");
+            WriteLine();
+            WriteLine("Townspeople walk lazily about, there doesn't seem to be much urgency");
+            WriteLine("in anyone. The road goes through the town and you arrive at a courtyard");
+            WriteLine("The north side of the courtyard is lined with tall narrow buildings and");
+            WriteLine("and a small street that connects to the main road that goes east or");
+            WriteLine("west further into different parts of the town.");
+            WriteLine("******************************************************************");
+            WriteLine();
         }
         else if (previousLocation == "EastTown")
         {
-            Console.WriteLine("You make your way west to the center of town.");
-            Console.WriteLine();
-            Console.WriteLine("Townspeople walk lazily about, there doesn't seem to be much urgency");
-            Console.WriteLine("in anyone. The road goes through the town and you arrive at a courtyard");
-            Console.WriteLine("The north side of the courtyard is lined with tall narrow buildings and");
-            Console.WriteLine("and a small street that connects to the main road that goes east or");
-            Console.WriteLine("west further into different parts of the town.");
-            Console.WriteLine("******************************************************************");
-            Console.WriteLine();
+            WriteLine("You make your way west to the center of town.");
+            WriteLine();
+            WriteLine("Townspeople walk lazily about, there doesn't seem to be much urgency");
+            WriteLine("in anyone. The road goes through the town and you arrive at a courtyard");
+            WriteLine("The north side of the courtyard is lined with tall narrow buildings and");
+            WriteLine("and a small street that connects to the main road that goes east or");
+            WriteLine("west further into different parts of the town.");
+            WriteLine("******************************************************************");
+            WriteLine();
         }
 
         previousLocation = "Town";
 
-        while (true)
-        {
-            Console.Write("Command: ");
-            string? response = Console.ReadLine();
-            if (response.ToLower() == "inventory")
-            {
-                MainMethod.DisplayInventory(inventory);
-            }
-            else if (response.ToLower() == "help")
-            {
-                MainMethod.Help();
-            }
-            else if (response.ToLower() == "south")
-            {
-                Map.Field();
-            }
-            else if (response.ToLower() == "north")
-            {
-            }
-            else if (response.ToLower() == "west")
-            {
-                Map.WestTown();
-            }
-            else if (response.ToLower() == "east")
-            {
-                Map.EastTown();
-            }
-            else
-            {
-                Console.Beep(200, 100);
-                Console.WriteLine("I do not understand that command.");
-            }
-        }
+        List<MenuOption> options =
+        [
+            new("inventory", () => MainMethod.DisplayInventory(inventory)),
+            new("help", MainMethod.Help),
+            new("south",Field),
+            new("north", WrongDirectionBeep),
+            new("west", WestTown),
+            new("east", EastTown),
+        ];
+
+        CallMenu(options);
     }
 
     public static void EastTown()
