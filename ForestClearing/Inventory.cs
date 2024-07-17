@@ -13,9 +13,9 @@ public static class Inventory
             Console.WriteLine(item);
         }
     }
-    public static string PlayerName()
+    public static string? PlayerName()
     {
-        string name;
+        string? name;
         bool playerName = false;
         do
         {

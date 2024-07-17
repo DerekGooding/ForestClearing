@@ -18,7 +18,7 @@ internal static class Interiors
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -53,7 +53,7 @@ internal static class Interiors
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -92,7 +92,7 @@ internal static class Interiors
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -129,7 +129,7 @@ internal static class Interiors
         {
             bool swampFinished = false;
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);

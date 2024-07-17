@@ -26,7 +26,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -80,7 +80,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -130,7 +130,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -203,7 +203,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -294,7 +294,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -421,7 +421,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -505,7 +505,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -571,7 +571,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -623,7 +623,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -698,7 +698,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -756,7 +756,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -822,7 +822,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -870,7 +870,7 @@ internal static class Map
 
         while (true)
         {
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
 
             if (response.ToLower() == "inventory")
             {
@@ -926,7 +926,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);
@@ -1029,7 +1029,7 @@ internal static class Map
         while (true)
         {
             Console.Write("Command: ");
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
                 MainMethod.DisplayInventory(inventory);

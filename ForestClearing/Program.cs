@@ -8,10 +8,9 @@ internal static class Program
         //INTRO
 
         MainMethod.Intro();
-        string playerName = MainMethod.PlayerName();
+        string? playerName = MainMethod.PlayerName();
 
         Map.Clearing();
-
 
         int x = 0;
         int y = 0;

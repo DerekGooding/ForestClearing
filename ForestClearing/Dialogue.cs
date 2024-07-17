@@ -52,7 +52,7 @@ internal static class Dialogue
         }
         do
         {
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             switch (response.ToLower())
             {
                 case "leave":
@@ -158,7 +158,7 @@ internal static class Dialogue
                 Console.ResetColor();
             }
 
-            string response = Console.ReadLine();
+            string? response = Console.ReadLine();
             switch (response.ToLower())
             {
                 case "1":

@@ -39,9 +39,9 @@ internal static class MainMethod
         Console.WriteLine("There are other commands in the game! Try ones out that might seem obvious.");
         Console.WriteLine("if you want to leave a room maybe its just as simple as saying leave or...");
     }
-    public static string PlayerName()
+    public static string? PlayerName()
     {
-        string name = "";
+        string? name = "";
         bool playerNameValid = false;
         while (!playerNameValid)
         {
@@ -69,7 +69,7 @@ internal static class MainMethod
         List<string> inventory = new List<string>();
         inventory.Add("Pickle");
         inventory.Add("dirty penny");
-        return inventory;   
+        return inventory;
     }
     public static void DisplayInventory(List<string> inventory)
     {
