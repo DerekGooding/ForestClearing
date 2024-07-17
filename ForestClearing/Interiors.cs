@@ -2,8 +2,6 @@
 
 internal static class Interiors
 {
-    private static readonly List<string> inventory = Main.InitInventory();
-
     internal static void Template()
     {
         ClearBeep();
@@ -21,7 +19,7 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
@@ -54,7 +52,7 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
@@ -92,7 +90,7 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
@@ -127,7 +125,7 @@ internal static class Interiors
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {

@@ -70,9 +70,9 @@ internal static class Main
         return name;
     }
 
-    public static List<string> InitInventory => ["Pickle", "dirty penny"];
+    public static List<string> Inventory => ["Pickle", "dirty penny"];
 
-    public static void DisplayInventory(List<string> inventory) => inventory.ForEach(x => WriteLine($"- {x}"));
+    public static void DisplayInventory() => Inventory.ForEach(x => WriteLine($"- {x}"));
 
     public static void GameOver()
     {

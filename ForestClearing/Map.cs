@@ -4,8 +4,6 @@ namespace ForestClearing;
 
 internal static class Map
 {
-    private static readonly List<string> inventory = Main.InitInventory();
-
     private static string previousLocation = "";
 
     private static void Template()
@@ -32,7 +30,7 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
@@ -77,7 +75,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south", SouthWoods),
             new("north", NorthWoods),
@@ -104,7 +102,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south", WrongDirectionBeep),
             new("north", WrongDirectionBeep),
@@ -147,7 +145,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("enter hut", Interiors.HintusHut),
             new("south", WrongDirectionBeep),
@@ -206,7 +204,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south", Clearing),
             new("north", Field),
@@ -306,7 +304,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south", NorthWoods),
             new("north", Town),
@@ -366,7 +364,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south",Field),
             new("north", WrongDirectionBeep),
@@ -408,7 +406,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south",Church),
             new("north", () => WriteLine("Behind the houses to the North are steep hills. They look impassible.")),
@@ -436,7 +434,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south",() =>
             {
@@ -490,7 +488,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south",River),
             new("north", () =>
@@ -528,7 +526,7 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
@@ -588,7 +586,7 @@ internal static class Map
 
         List<MenuOption> options =
         [
-            new("inventory", () => Main.DisplayInventory(inventory)),
+            new("inventory", Main.DisplayInventory),
             new("help", Main.Help),
             new("south",CliffFace),
             new("north", WrongDirectionBeep),
@@ -621,7 +619,7 @@ internal static class Map
 
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
@@ -676,7 +674,7 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
@@ -777,7 +775,7 @@ internal static class Map
             string? response = Console.ReadLine();
             if (response.ToLower() == "inventory")
             {
-                Main.DisplayInventory(inventory);
+                Main.DisplayInventory();
             }
             else if (response.ToLower() == "help")
             {
